@@ -59,11 +59,12 @@ public class Validacion {
     String entrada = "";
     boolean valido = false;
     do {
-        String input = JOptionPane.showInputDialog("Ingrese el "
-                + "Nombre del cliente");
-            if (input==""){
-        this.mostrarErrorOptionPane("Debe ingresar un valor");
+        String input = JOptionPane.showInputDialog("Ingrese el Nombre"
+                + " del Jugador","Guest01");
+        if ("".equals(input)){
+            this.mostrarErrorOptionPane("Debe ingresar un valor");
         }else{
+            entrada = input;
             valido = true;
         }
     }while (!valido);

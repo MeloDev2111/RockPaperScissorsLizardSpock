@@ -8,6 +8,7 @@ package MVP_Pasiva.Vista;
 import MVP_Pasiva.Presentador.Presentador;
 import Modelo.Jugador;
 import Modelo.OpcionesJugada;
+import Modelo.TiposPartida;
 
 /**
  *
@@ -24,37 +25,52 @@ public class VPartidaConsola implements IVPartida{
 
     @Override
     public void iniciar() {
+        presenter.establecerTipoPartida();
+        presenter.establecerPuntosMximos();
+        presenter.registrarJugador();
+        presenter.jugar();
+    }
+    
+    @Override
+    public TiposPartida getTipoPartida() {
         int op;
         do{
             menu();
             op=validar.inInt();
             switch (op) {
                 case 1:
-                    
-                    break;
+                    return TiposPartida.JvJ;
                 case 2:
-                    break;
+                    return TiposPartida.JvB;
                 case 3:
                     System.out.println("HASTA LA PROXIMA!");
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("OPCIONES ENTRE 1 Y 3");
                     break;
             }
         }while(op!=3);
+        return null;
     }
 
     @Override
+    public int getPuntosMaximos() {
+        System.out.println("INGRESE EL NUMERO DE PUNTOS REQUERIDOS PARA GANAR: ");
+        return validar.inInt();
+    }
+    @Override
     public String getnombreJugador() {
         System.out.println("Ingrese Nombre del Jugador");
-        return validar.inStringOptionPane();
+        String nombre = validar.inStringOptionPane();
+        return nombre;
     }
 
     @Override
     public OpcionesJugada getJugada(Jugador j) {
         switch (j.getTipo()) {
             case PERSONA:
-                System.out.println("INGRESE SU JUGADA");
+                System.out.println("INGRESE SU JUGADA "+j.getNombreJugador());
                 return validar.inJugada();
             case BOT:
         }
