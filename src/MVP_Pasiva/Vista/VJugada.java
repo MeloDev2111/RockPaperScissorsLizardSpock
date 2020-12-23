@@ -5,21 +5,9 @@
  */
 package MVP_Pasiva.Vista;
 
-import MVP_Pasiva.Presentador.Presentador;
-import Modelo.Jugador;
-import Modelo.OpcionesJugada;
-import Modelo.TiposPartida;
+public class VJugada extends javax.swing.JPanel{
 
-/**
- *
- * @author eddyf
- */
-public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
-
-    /**
-     * Creates new form VPartidaSwing
-     */
-    public VPartidaSwing() {
+    public VJugada() {
         initComponents();
     }
 
@@ -32,26 +20,157 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        OpcionesJugadaRadioBtnGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        btnSelectRock = new javax.swing.JButton();
+        btnSelectPaper = new javax.swing.JButton();
+        btnSelectScissors = new javax.swing.JButton();
+        btnSelectLizard = new javax.swing.JButton();
+        btnSelectSpock = new javax.swing.JButton();
+        radioBtnRock = new javax.swing.JRadioButton();
+        radioBtnPaper = new javax.swing.JRadioButton();
+        radioBtnScissors = new javax.swing.JRadioButton();
+        radioBtnLizard = new javax.swing.JRadioButton();
+        radioBtnSpock = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+
+        btnSelectRock.setText("ROCK");
+        btnSelectRock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectRockActionPerformed(evt);
+            }
+        });
+
+        btnSelectPaper.setText("PAPER");
+        btnSelectPaper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectPaperActionPerformed(evt);
+            }
+        });
+
+        btnSelectScissors.setText("SCISSORS");
+        btnSelectScissors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectScissorsActionPerformed(evt);
+            }
+        });
+
+        btnSelectLizard.setText("LIZARD");
+        btnSelectLizard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectLizardActionPerformed(evt);
+            }
+        });
+
+        btnSelectSpock.setText("SPOCK");
+        btnSelectSpock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectSpockActionPerformed(evt);
+            }
+        });
+
+        OpcionesJugadaRadioBtnGroup.add(radioBtnRock);
+
+        OpcionesJugadaRadioBtnGroup.add(radioBtnPaper);
+
+        OpcionesJugadaRadioBtnGroup.add(radioBtnScissors);
+
+        OpcionesJugadaRadioBtnGroup.add(radioBtnLizard);
+
+        OpcionesJugadaRadioBtnGroup.add(radioBtnSpock);
+
+        jLabel3.setText("ROCK");
+
+        jLabel4.setText("PAPER");
+
+        jLabel5.setText("SCISSORS");
+
+        jLabel6.setText("LIZARD");
+
+        jLabel7.setText("SPOCK");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(radioBtnRock)
+                .addGap(97, 97, 97)
+                .addComponent(radioBtnPaper)
+                .addGap(97, 97, 97)
+                .addComponent(radioBtnScissors)
+                .addGap(96, 96, 96)
+                .addComponent(radioBtnLizard)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(radioBtnSpock)
+                .addGap(63, 63, 63))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(btnSelectRock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelectScissors, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelectLizard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel3)
+                .addGap(91, 91, 91)
+                .addComponent(jLabel4)
+                .addGap(76, 76, 76)
+                .addComponent(jLabel5)
+                .addGap(77, 77, 77)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 321, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnSelectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelectRock, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelectScissors, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelectLizard, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(radioBtnRock)
+                    .addComponent(radioBtnPaper)
+                    .addComponent(radioBtnScissors)
+                    .addComponent(radioBtnLizard)
+                    .addComponent(radioBtnSpock))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("ES EL TURNO DE :");
+        jLabel1.setText("HAZ TU JUGADA:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -59,11 +178,11 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(79, 79, 79)
                 .addComponent(jLabel1)
-                .addGap(76, 76, 76)
-                .addComponent(jLabel2)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,62 +194,83 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setFont(new java.awt.Font("Terminator Two", 1, 24)); // NOI18N
+        jButton1.setText("GOOOO!");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSelectRockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectRockActionPerformed
+        this.radioBtnRock.setSelected(true);
+    }//GEN-LAST:event_btnSelectRockActionPerformed
+
+    private void btnSelectPaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaperActionPerformed
+        this.radioBtnPaper.setSelected(true);
+    }//GEN-LAST:event_btnSelectPaperActionPerformed
+
+    private void btnSelectScissorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectScissorsActionPerformed
+        this.radioBtnScissors.setSelected(true);
+    }//GEN-LAST:event_btnSelectScissorsActionPerformed
+
+    private void btnSelectLizardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectLizardActionPerformed
+        this.radioBtnLizard.setSelected(true);
+    }//GEN-LAST:event_btnSelectLizardActionPerformed
+
+    private void btnSelectSpockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectSpockActionPerformed
+        this.radioBtnSpock.setSelected(true);
+    }//GEN-LAST:event_btnSelectSpockActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup OpcionesJugadaRadioBtnGroup;
+    private javax.swing.JButton btnSelectLizard;
+    private javax.swing.JButton btnSelectPaper;
+    private javax.swing.JButton btnSelectRock;
+    private javax.swing.JButton btnSelectScissors;
+    private javax.swing.JButton btnSelectSpock;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton radioBtnLizard;
+    private javax.swing.JRadioButton radioBtnPaper;
+    private javax.swing.JRadioButton radioBtnRock;
+    private javax.swing.JRadioButton radioBtnScissors;
+    private javax.swing.JRadioButton radioBtnSpock;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void setPresentador(Presentador p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void iniciar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public TiposPartida getTipoPartida() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getnombreJugador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getPuntosMaximos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public OpcionesJugada getJugada(Jugador j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setSalida(String nombreJugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

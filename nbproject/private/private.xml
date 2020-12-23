@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/MVP_Pasiva/Vista/IVPartida.java</file>
-            <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/Modelo/JugadorBot.java</file>
+            <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/MVP_Pasiva/Vista/VJugada.java</file>
+            <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/MVP_Pasiva/Vista/VMenu.java</file>
+            <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/MVP_Pasiva/Vista/VRonda.java</file>
             <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/Modelo/Jugador.java</file>
             <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/Modelo/Logica.java</file>
             <file>file:/D:/Josue/ZDEV/RockPaperScissorsLizardSpock/src/MVP_Pasiva/Vista/Validacion.java</file>
