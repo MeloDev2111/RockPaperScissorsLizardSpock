@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MVP_Pasiva.Vista;
 
-import MVP_Pasiva.Presentador.Presentador;
-import Modelo.Jugador;
-import Modelo.OpcionesJugada;
-import Modelo.TiposPartida;
+import MVP_Pasiva.Presentador.PresentadorPartida;
 
 public interface IVPartida {
-    public void setPresentador(Presentador p);
+    public void setPresentador(PresentadorPartida p);
     public void iniciar();
-    public TiposPartida getTipoPartida();
+    public void mostrar();
+    public void cerrar();
     public String getnombreJugador();
     public int getPuntosMaximos();
-    public OpcionesJugada getJugada(Jugador j);
-    public void setSalida(String nombreJugador);
+    public void setTituloPartida(String idPartida, String Modo);
+    public void setnombreJugadores(String nombreJ1, String nombreJ2);
+    public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador);
 }

@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MVP_Pasiva.Vista;
 
-/**
- *
- * @author eddyf
- */
-public class VRonda extends javax.swing.JPanel {
+import MVP_Pasiva.Presentador.PresentadorRonda;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-    /**
-     * Creates new form VJugada
-     */
-    public VRonda() {
+public class VRondaSwing extends javax.swing.JPanel implements IVRonda{
+    private JFrame frame = new JFrame("RONDA");
+    private PresentadorRonda presentador;
+    
+    public VRondaSwing() {
         initComponents();
     }
 
@@ -34,12 +28,12 @@ public class VRonda extends javax.swing.JPanel {
         lblNombreJ1 = new javax.swing.JLabel();
         lblNombreJ2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnOkRonda = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblNumeroRonda = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        panelGanadorRonda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblGanadorRonda = new javax.swing.JLabel();
 
         iconOpcionJugadaJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconOpcionJugadaJ1.setText("opJugJ1");
@@ -91,18 +85,23 @@ public class VRonda extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jButton2.setText("OK");
+        btnOkRonda.setText("OK");
+        btnOkRonda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkRondaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnOkRonda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnOkRonda, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -128,25 +127,25 @@ public class VRonda extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("GANADOR RONDA : ");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("NombreGanadorRonda");
+        lblGanadorRonda.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblGanadorRonda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGanadorRonda.setText("NombreGanadorRonda");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelGanadorRondaLayout = new javax.swing.GroupLayout(panelGanadorRonda);
+        panelGanadorRonda.setLayout(panelGanadorRondaLayout);
+        panelGanadorRondaLayout.setHorizontalGroup(
+            panelGanadorRondaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGanadorRondaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblGanadorRonda, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelGanadorRondaLayout.setVerticalGroup(
+            panelGanadorRondaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblGanadorRonda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -156,7 +155,7 @@ public class VRonda extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelGanadorRonda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,26 +164,78 @@ public class VRonda extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelGanadorRonda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnOkRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkRondaActionPerformed
+        presentador.agregarRonda();
+        presentador.mostrarVistaPartida();
+    }//GEN-LAST:event_btnOkRondaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOkRonda;
     private javax.swing.JLabel iconOpcionJugadaJ1;
     private javax.swing.JLabel iconOpcionJugadaJ2;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblGanadorRonda;
     private javax.swing.JLabel lblNombreJ1;
     private javax.swing.JLabel lblNombreJ2;
     private javax.swing.JLabel lblNumeroRonda;
+    private javax.swing.JPanel panelGanadorRonda;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setPresentador(PresentadorRonda p) {
+        presentador = p;
+    }
+
+    @Override
+    public void iniciar() {
+        frame.setContentPane(this);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(625, 450);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //CARGAR DATOS
+        presentador.mostrarDatos();
+    }
+
+    @Override
+    public void cerrar() {
+        frame.dispose();
+    }
+
+    @Override
+    public void setNroRonda(int NroRonda) {
+       this.lblNumeroRonda.setText("RONDA Nº: "+NroRonda);
+    }
+
+    @Override
+    public void setNombreJugadores(String nombreJ1, String nombreJ2) {
+        this.lblNombreJ1.setText(nombreJ1);
+        this.lblNombreJ2.setText(nombreJ2);
+    }
+
+    @Override
+    public void setJugadas(String OpJugadaJ1, String OpJugadaJ2) {
+        this.iconOpcionJugadaJ1.setText("");
+        this.iconOpcionJugadaJ1.setIcon(new ImageIcon(getClass().getResource("/Imagenes/"+OpJugadaJ1+".png")));
+        this.iconOpcionJugadaJ2.setText("");
+        this.iconOpcionJugadaJ2.setIcon(new ImageIcon(getClass().getResource("/Imagenes/"+OpJugadaJ2+".png")));
+        
+    }
+
+    @Override
+    public void setSalida(String nombreGanador) {
+        this.lblGanadorRonda.setText(nombreGanador);
+    }
 }

@@ -10,5 +10,5 @@ package Modelo;
  * @author eddyf
  */
 public enum TiposPartida {
-    JvJ,JvB;
+    JvJ,JvB,BvB;
 }

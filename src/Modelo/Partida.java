@@ -7,16 +7,20 @@ public class Partida {
     private TiposPartida tipo;
     private Jugador jugador1;
     private Jugador jugador2;
+    private int scorej1=0;
+    private int scorej2=0;
     private Jugador ganador;
-    ArrayList<Ronda> Rondas = new ArrayList();
+    
+    private ArrayList<Ronda> Rondas = new ArrayList();
+    private int nroRonda=1;
     private int alMejorDe=3;
     
     public void agregarRonda(Ronda r){
         Rondas.add(r);
+        nroRonda++;
     }
     public void evaluarGanadorPartida(){
-        int scorej1=0;
-        int scorej2=0;
+        scorej1=0; scorej2=0;
         for (Ronda ronda : Rondas) {
             Jugador ganadorRonda = ronda.getGanadorRonda();
             if (ganadorRonda==this.jugador1) {
@@ -32,8 +36,6 @@ public class Partida {
         if (scorej2==this.alMejorDe) {
             this.ganador=jugador2;
         }
-        System.out.println("score J1: " + scorej1);
-        System.out.println("score J2: " + scorej2);
     }
     
     public boolean existeGanador(){
@@ -73,6 +75,22 @@ public class Partida {
         this.jugador2 = jugador2;
     }
 
+    public int getScorej1() {
+        return scorej1;
+    }
+
+    public void setScorej1(int scorej1) {
+        this.scorej1 = scorej1;
+    }
+
+    public int getScorej2() {
+        return scorej2;
+    }
+
+    public void setScorej2(int scorej2) {
+        this.scorej2 = scorej2;
+    }
+    
     public Jugador getGanador() {
         return ganador;
     }
@@ -89,6 +107,14 @@ public class Partida {
         this.Rondas = Rondas;
     }
 
+    public int getNroRonda() {
+        return nroRonda;
+    }
+
+    public void setNroRonda(int nroRonda) {
+        this.nroRonda = nroRonda;
+    }
+    
     public int getAlMejorDe() {
         return alMejorDe;
     }

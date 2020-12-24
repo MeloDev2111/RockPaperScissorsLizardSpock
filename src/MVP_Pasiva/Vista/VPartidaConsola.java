@@ -1,92 +1,68 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MVP_Pasiva.Vista;
 
-import MVP_Pasiva.Presentador.Presentador;
-import Modelo.Jugador;
-import Modelo.OpcionesJugada;
-import Modelo.TiposPartida;
+import MVP_Pasiva.Presentador.PresentadorPartida;
 
-/**
- *
- * @author eddyf
- */
-public class VPartidaConsola implements IVPartida{
-    private Presentador presenter;
+
+public class VPartidaConsola implements IVPartida {
+    private PresentadorPartida presentador;
     private Validacion validar = new Validacion();
     
     @Override
-    public void setPresentador(Presentador p) {
-        this.presenter = p;
+    public void setPresentador(PresentadorPartida p) {
+        presentador = p;
     }
 
     @Override
     public void iniciar() {
-        presenter.establecerTipoPartida();
-        presenter.establecerPuntosMximos();
-        presenter.registrarJugador();
-        presenter.jugar();
+        //DATOS NECESARIOS 
+        presentador.establecerPuntosMaximos();
+        presentador.registrarJugadores();
+        presentador.establecerTitulo();
+        //cargar datos
+        mostrar();
     }
     
     @Override
-    public TiposPartida getTipoPartida() {
-        int op;
-        do{
-            menu();
-            op=validar.inInt();
-            switch (op) {
-                case 1:
-                    return TiposPartida.JvJ;
-                case 2:
-                    return TiposPartida.JvB;
-                case 3:
-                    System.out.println("HASTA LA PROXIMA!");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("OPCIONES ENTRE 1 Y 3");
-                    break;
-            }
-        }while(op!=3);
-        return null;
+    public void mostrar() {
+        presentador.ActualizarInformacion();
+    }
+    
+    @Override
+    public void cerrar() {
+        System.out.println("SALIENDO DE VISTA PARTIDA");
+    }
+
+    @Override
+    public String getnombreJugador() {
+//        return validar.inString();
+        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
     }
 
     @Override
     public int getPuntosMaximos() {
-        System.out.println("INGRESE EL NUMERO DE PUNTOS REQUERIDOS PARA GANAR: ");
-        return validar.inInt();
-    }
-    @Override
-    public String getnombreJugador() {
-        System.out.println("Ingrese Nombre del Jugador");
-        String nombre = validar.inStringOptionPane();
-        return nombre;
+//        return validar.inInt();
+        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
     }
 
     @Override
-    public OpcionesJugada getJugada(Jugador j) {
-        switch (j.getTipo()) {
-            case PERSONA:
-                System.out.println("INGRESE SU JUGADA "+j.getNombreJugador());
-                return validar.inJugada();
-            case BOT:
+    public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador) {
+        System.out.println("Score J1: "+ scoreJ1);
+        System.out.println("Score J2: "+ scoreJ2);
+        if (nombreGanador!=null) {
+            System.out.println("EL GANADOR ES :" + nombreGanador);
         }
-        return null;
     }
 
     @Override
-    public void setSalida(String nombreJugador) {
-        System.out.println("EL GANADOR ES "+nombreJugador);
+    public void setnombreJugadores(String nombreJ1, String nombreJ2) {
+        System.out.println("Jugador 1: " + nombreJ1);
+        System.out.println("Jugador 2: " + nombreJ2);
     }
 
-    private void menu() {
-        System.out.println("<-------------MENU------------->");
-        System.out.println("1.- 2 Jugadores");
-        System.out.println("2.- Contra un BOT");
-        System.out.println("3.- Salir");
-        System.out.println("Elija una opción");
+    @Override
+    public void setTituloPartida(String idPartida, String Modo) {
+        System.out.println("PARTIDA #"+idPartida+" ("+Modo+" mode)");
     }
+
 }

@@ -5,10 +5,13 @@
  */
 package Modelo;
 
-import MVP_Pasiva.Presentador.Presentador;
-import MVP_Pasiva.Vista.IVPartida;
-import MVP_Pasiva.Vista.VPartidaConsola;
+import MVP_Pasiva.Presentador.PresentadorMenu;
+import MVP_Pasiva.Presentador.Presentador_Version_01;
+import MVP_Pasiva.Vista.IVMenu;
+import MVP_Pasiva.Vista.VPartidaConsola_Ver01;
 import MVP_Pasiva.Vista.Validacion;
+import MVP_Pasiva.Vista.IVPartida_Ver01;
+import MVP_Pasiva.Vista.VMenuSwing;
 
 /**
  *
@@ -49,10 +52,18 @@ public class Test {
 //            System.out.println(p1.getGanador().getNombreJugador());
 //        }
 
+//VERSION 1.0
+//          Partida p1 = new Partida();
+//          IVPartida_Ver01 vista = new VPartidaConsola_Ver01();
+//          Presentador_Version_01 p = new Presentador_Version_01(vista,p1);
+//          vista.setPresentador(p);
+//          vista.iniciar();
+//VERSION 2.0
           Partida p1 = new Partida();
-          IVPartida vista = new VPartidaConsola();
-          Presentador p = new Presentador(vista,p1);
+          IVMenu vista = new VMenuSwing();
+          PresentadorMenu p = new PresentadorMenu(vista, p1);
           vista.setPresentador(p);
           vista.iniciar();
+
     }
 }

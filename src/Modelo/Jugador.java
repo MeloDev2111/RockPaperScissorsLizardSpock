@@ -4,9 +4,11 @@ public abstract class Jugador {
     private String nombreJugador;
     private TiposJugador tipo;
 
-    public Jugador(String nombreJugador) {
+    public Jugador(String nombreJugador, TiposJugador tipo) {
         this.nombreJugador = nombreJugador;
+        this.tipo = tipo;
     }
+    
     
     public abstract OpcionesJugada jugar();
     

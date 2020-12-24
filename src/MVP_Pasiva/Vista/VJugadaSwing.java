@@ -5,9 +5,16 @@
  */
 package MVP_Pasiva.Vista;
 
-public class VJugada extends javax.swing.JPanel{
+import MVP_Pasiva.Presentador.PresentadorJugada;
+import Modelo.OpcionesJugada;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-    public VJugada() {
+public class VJugadaSwing extends javax.swing.JPanel implements IVJugada{
+    private JFrame frame = new JFrame("Jugada");
+    private PresentadorJugada presentador;
+    
+    public VJugadaSwing() {
         initComponents();
     }
 
@@ -39,11 +46,11 @@ public class VJugada extends javax.swing.JPanel{
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNombreJugador = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnJugar = new javax.swing.JButton();
 
-        btnSelectRock.setText("ROCK");
+        btnSelectRock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ROCK.png"))); // NOI18N
         btnSelectRock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectRockActionPerformed(evt);
@@ -103,41 +110,32 @@ public class VJugada extends javax.swing.JPanel{
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(radioBtnRock)
-                .addGap(97, 97, 97)
-                .addComponent(radioBtnPaper)
-                .addGap(97, 97, 97)
-                .addComponent(radioBtnScissors)
-                .addGap(96, 96, 96)
-                .addComponent(radioBtnLizard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(radioBtnSpock)
-                .addGap(63, 63, 63))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnSelectRock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel3)
+                    .addComponent(btnSelectRock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioBtnRock))
                 .addGap(18, 18, 18)
-                .addComponent(btnSelectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(radioBtnPaper)
+                    .addComponent(btnSelectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(btnSelectScissors, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(radioBtnScissors)
+                    .addComponent(btnSelectScissors, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
-                .addComponent(btnSelectLizard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel3)
-                .addGap(91, 91, 91)
-                .addComponent(jLabel4)
-                .addGap(76, 76, 76)
-                .addComponent(jLabel5)
-                .addGap(77, 77, 77)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(58, 58, 58))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(radioBtnLizard)
+                    .addComponent(btnSelectLizard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 23, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(radioBtnSpock)
+                    .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,10 +150,10 @@ public class VJugada extends javax.swing.JPanel{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnSelectPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelectRock, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSelectScissors, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSelectLizard, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSelectSpock, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelectRock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(radioBtnRock)
@@ -169,9 +167,9 @@ public class VJugada extends javax.swing.JPanel{
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("HAZ TU JUGADA:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel2");
+        lblNombreJugador.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblNombreJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombreJugador.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,7 +179,7 @@ public class VJugada extends javax.swing.JPanel{
                 .addGap(79, 79, 79)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -190,22 +188,27 @@ public class VJugada extends javax.swing.JPanel{
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lblNombreJugador))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("Terminator Two", 1, 24)); // NOI18N
-        jButton1.setText("GOOOO!");
+        btnJugar.setFont(new java.awt.Font("Terminator Two", 1, 24)); // NOI18N
+        btnJugar.setText("GOOOO!");
+        btnJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+            .addComponent(btnJugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -247,17 +250,21 @@ public class VJugada extends javax.swing.JPanel{
         this.radioBtnSpock.setSelected(true);
     }//GEN-LAST:event_btnSelectSpockActionPerformed
 
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
+        presentador.RegistrarJugada();
+        presentador.mostrarSiguienteVista();
+    }//GEN-LAST:event_btnJugarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup OpcionesJugadaRadioBtnGroup;
+    private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnSelectLizard;
     private javax.swing.JButton btnSelectPaper;
     private javax.swing.JButton btnSelectRock;
     private javax.swing.JButton btnSelectScissors;
     private javax.swing.JButton btnSelectSpock;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -266,11 +273,74 @@ public class VJugada extends javax.swing.JPanel{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblNombreJugador;
     private javax.swing.JRadioButton radioBtnLizard;
     private javax.swing.JRadioButton radioBtnPaper;
     private javax.swing.JRadioButton radioBtnRock;
     private javax.swing.JRadioButton radioBtnScissors;
     private javax.swing.JRadioButton radioBtnSpock;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setPresentador(PresentadorJugada p) {
+        presentador=p;
+    }
+
+    @Override
+    public OpcionesJugada getJugada() {
+        if (this.radioBtnRock.isSelected()){
+            return OpcionesJugada.ROCK;
+        }
+        if (this.radioBtnPaper.isSelected()){
+            return OpcionesJugada.PAPER;
+        }
+        if (this.radioBtnScissors.isSelected()){
+            return OpcionesJugada.SCISSORS;
+        }
+        if (this.radioBtnLizard.isSelected()){
+            return OpcionesJugada.LIZARD;
+        }
+        if (this.radioBtnSpock.isSelected()){
+            return OpcionesJugada.SPOCK;
+        }
+        return null;
+    }
+
+    @Override
+    public void setNombreJugador(String nombre) {
+        this.lblNombreJugador.setText(nombre);
+    }
+
+    @Override
+    public void iniciar() {
+        frame.setContentPane(this);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(625, 450);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //CARGAR DATOS
+        presentador.setJugador();
+        this.setImagenes();
+        this.radioBtnRock.setSelected(true);
+    }
+
+    @Override
+    public void cerrar() {
+       frame.dispose();
+    }
+    
+    private void setImagenes(){
+        this.btnSelectRock.setText("");
+        this.btnSelectRock.setIcon(new ImageIcon(getClass().getResource("/Imagenes/ROCK.png")));
+        this.btnSelectPaper.setText("");
+        this.btnSelectPaper.setIcon(new ImageIcon(getClass().getResource("/Imagenes/PAPER.png")));
+        this.btnSelectScissors.setText("");
+        this.btnSelectScissors.setIcon(new ImageIcon(getClass().getResource("/Imagenes/SCISSORS.png")));
+        this.btnSelectLizard.setText("");
+        this.btnSelectLizard.setIcon(new ImageIcon(getClass().getResource("/Imagenes/LIZARD.png")));
+        this.btnSelectSpock.setText("");
+        this.btnSelectSpock.setIcon(new ImageIcon(getClass().getResource("/Imagenes/SPOCK.png")));
+    }
 
 }

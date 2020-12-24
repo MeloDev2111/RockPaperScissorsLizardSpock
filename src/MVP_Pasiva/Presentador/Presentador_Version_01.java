@@ -1,24 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MVP_Pasiva.Presentador;
 
-import MVP_Pasiva.Vista.IVPartida;
 import Modelo.Jugada;
 import Modelo.Jugador;
 import Modelo.JugadorBot;
 import Modelo.JugadorPersona;
 import Modelo.Partida;
 import Modelo.Ronda;
+import MVP_Pasiva.Vista.IVPartida_Ver01;
 
-public class Presentador {
-    private IVPartida vista;
+public class Presentador_Version_01 {
+    private IVPartida_Ver01 vista;
     private Ronda ronda;
     private Partida mPartida;
 
-    public Presentador(IVPartida vista, Partida mPartida) {
+    public Presentador_Version_01(IVPartida_Ver01 vista, Partida mPartida) {
         this.vista = vista;
         this.mPartida = mPartida;
     }

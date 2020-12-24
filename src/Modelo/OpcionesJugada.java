@@ -1,7 +1,11 @@
 package Modelo;
 
 public enum OpcionesJugada {
-    ROCK('R'), PAPER('P'), SCISSOR('S');
+    ROCK('R'),
+    PAPER('P'),
+    SCISSORS('S'),
+    LIZARD('L'),
+    SPOCK('V');
     private char caracter;
     
     OpcionesJugada(char c){
@@ -11,4 +15,5 @@ public enum OpcionesJugada {
     public char getCaracter() {
         return caracter;
     }
+    
 }

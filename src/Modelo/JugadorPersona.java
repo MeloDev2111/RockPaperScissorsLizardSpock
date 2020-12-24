@@ -12,8 +12,7 @@ package Modelo;
 public class JugadorPersona extends Jugador{
 
     public JugadorPersona(String nombreJugador) {
-        super(nombreJugador);
-        this.setTipo(TiposJugador.PERSONA);
+        super(nombreJugador,TiposJugador.PERSONA);
     }
     
     @Override

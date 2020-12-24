@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MVP_Pasiva.Vista;
 
-/**
- *
- * @author eddyf
- */
-public class VPartida extends javax.swing.JPanel {
+import MVP_Pasiva.Presentador.PresentadorPartida;
+import javax.swing.JFrame;
 
-    /**
-     * Creates new form VJugada
-     */
-    public VPartida() {
+public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
+    private JFrame frame = new JFrame("Partida de R P S L V");
+    private PresentadorPartida presentador;
+    private Validacion validar = new Validacion();
+    
+    public VPartidaSwing() {
         initComponents();
     }
 
@@ -34,9 +28,9 @@ public class VPartida extends javax.swing.JPanel {
         lblNombreJ1 = new javax.swing.JLabel();
         lblNombreJ2 = new javax.swing.JLabel();
         panelBotones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnGuardarPartida = new javax.swing.JButton();
+        btnComenzarRonda = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblPartida = new javax.swing.JLabel();
         panelGanadorPartida = new javax.swing.JPanel();
@@ -93,33 +87,48 @@ public class VPartida extends javax.swing.JPanel {
                 .addGap(0, 0, 0))
         );
 
-        jButton1.setText("GUARDAR PARTIDA");
+        btnGuardarPartida.setText("GUARDAR PARTIDA");
+        btnGuardarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarPartidaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("COMENZAR RONDA");
+        btnComenzarRonda.setText("COMENZAR RONDA");
+        btnComenzarRonda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComenzarRondaActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("SALIR");
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnComenzarRonda, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnComenzarRonda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGuardarPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -174,9 +183,9 @@ public class VPartida extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelScores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelGanadorPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,17 +195,28 @@ public class VPartida extends javax.swing.JPanel {
                 .addComponent(panelScores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGanadorPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5))
+                .addGap(21, 21, 21)
+                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        presentador.salirMenu();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnGuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPartidaActionPerformed
+        presentador.guardarPartida();
+    }//GEN-LAST:event_btnGuardarPartidaActionPerformed
+
+    private void btnComenzarRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarRondaActionPerformed
+        presentador.iniciarRonda();
+    }//GEN-LAST:event_btnComenzarRondaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnComenzarRonda;
+    private javax.swing.JButton btnGuardarPartida;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
@@ -210,4 +230,71 @@ public class VPartida extends javax.swing.JPanel {
     private javax.swing.JPanel panelGanadorPartida;
     private javax.swing.JPanel panelScores;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setPresentador(PresentadorPartida p) {
+        presentador=p;
+    }
+
+    @Override
+    public void iniciar() {
+        //DATOS NECESARIOS 
+        presentador.establecerPuntosMaximos();
+        presentador.registrarJugadores();
+        presentador.establecerTitulo();
+        //INICIAR VISTA
+        mostrar();
+    }
+    
+    @Override
+    public void mostrar() {
+        frame.setContentPane(this);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(625, 450);
+        frame.setLocationRelativeTo(null);
+        this.panelGanadorPartida.setVisible(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //CARGAR DATOS
+        presentador.ActualizarInformacion();
+    }
+
+    @Override
+    public void cerrar() {
+        frame.dispose();
+    }
+    
+    @Override
+    public String getnombreJugador() {
+        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
+    }
+
+    @Override
+    public int getPuntosMaximos() {
+        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
+    }
+
+    @Override
+    public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador) {
+        this.lblScoreJ1.setText(String.valueOf(scoreJ1));
+        this.lblScoreJ2.setText(String.valueOf(scoreJ2));
+        if (nombreGanador!=null) {
+            this.lblNombreGanadorPartida.setText(nombreGanador);
+            this.panelGanadorPartida.setVisible(true);
+            //POSTCONDICIONES DE GANADOR EXISTENTE
+            btnComenzarRonda.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void setnombreJugadores(String nombreJ1, String nombreJ2) {
+        this.lblNombreJ1.setText(nombreJ1);
+        this.lblNombreJ2.setText(nombreJ2);
+    }
+
+    @Override
+    public void setTituloPartida(String idPartida, String Modo) {
+        this.lblPartida.setText("PARTIDA #"+idPartida+" ("+Modo+" mode)");
+    }
+
 }

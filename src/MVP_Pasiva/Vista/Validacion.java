@@ -51,26 +51,57 @@ public class Validacion {
             }
         }while (!valido);
         return entrada;
-        
-        
     }
     
-    public String inStringOptionPane(){
-    String entrada = "";
-    boolean valido = false;
-    do {
-        String input = JOptionPane.showInputDialog("Ingrese el Nombre"
-                + " del Jugador","Guest01");
-        if ("".equals(input)){
-            this.mostrarErrorOptionPane("Debe ingresar un valor");
-        }else{
-            entrada = input;
-            valido = true;
-        }
-    }while (!valido);
-    return entrada;
+    public String inString(){
+        String entrada = "";
+        boolean valido = false;
+                
+        do {
+            in = new Scanner(System.in);//MODI
+            String input = in.next();
+            if (!"".equals(input)) {
+                this.mostrarError("Debe ingresar un valor");
+            }else{
+                entrada = input;
+                valido = true;
+            }
+        }while (!valido);
+        
+        return entrada;
     }
-
+    
+    
+    public String inNombreJugadorOptionPane(String titulo){
+        String entrada = "";
+        boolean valido = false;
+        do {
+            String input = JOptionPane.showInputDialog(titulo,"Guest01");
+            if ("".equals(input)){
+                this.mostrarErrorOptionPane("Debe ingresar un valor");
+            }else{
+                entrada = input;
+                valido = true;
+            }
+        }while (!valido);
+        return entrada;
+    }
+    
+    public int inPtosMaximosOptionPane(String titulo){
+        int entrada = -1;
+        boolean valido = false;
+        do {
+            String input = JOptionPane.showInputDialog(titulo,"3");
+            entrada = Integer.valueOf(input);
+            if (entrada<=0){
+                this.mostrarErrorOptionPane("Debe ingresar un valor numerico mayor a 0");
+            }else{
+                valido = true;
+            }
+        }while (!valido);
+        return entrada;
+    }
+    
     public OpcionesJugada inJugada(){
         OpcionesJugada jugada = null;
         boolean valido = false;
