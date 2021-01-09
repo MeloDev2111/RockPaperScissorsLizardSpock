@@ -1,6 +1,7 @@
 package MVP_Pasiva.Vista;
 
 import MVP_Pasiva.Presentador.PresentadorPartida;
+import java.io.File;
 import javax.swing.JFrame;
 
 public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
@@ -236,25 +237,17 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
         presentador=p;
     }
 
-    @Override
-    public void iniciar() {
-        //DATOS NECESARIOS 
-        presentador.establecerPuntosMaximos();
-        presentador.registrarJugadores();
-        presentador.establecerTitulo();
-        //INICIAR VISTA
-        mostrar();
-    }
     
     @Override
-    public void mostrar() {
+    public void iniciar() {
         frame.setContentPane(this);
         frame.pack();
         frame.setVisible(true);
         frame.setSize(625, 450);
         frame.setLocationRelativeTo(null);
-        this.panelGanadorPartida.setVisible(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        this.lblNombreGanadorPartida.setText("POR DECIDIR");
         //CARGAR DATOS
         presentador.ActualizarInformacion();
     }
@@ -263,16 +256,6 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
     public void cerrar() {
         frame.dispose();
     }
-    
-    @Override
-    public String getnombreJugador() {
-        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
-    }
-
-    @Override
-    public int getPuntosMaximos() {
-        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
-    }
 
     @Override
     public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador) {
@@ -280,7 +263,6 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
         this.lblScoreJ2.setText(String.valueOf(scoreJ2));
         if (nombreGanador!=null) {
             this.lblNombreGanadorPartida.setText(nombreGanador);
-            this.panelGanadorPartida.setVisible(true);
             //POSTCONDICIONES DE GANADOR EXISTENTE
             btnComenzarRonda.setEnabled(false);
         }

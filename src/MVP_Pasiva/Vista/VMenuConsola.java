@@ -59,4 +59,18 @@ public class VMenuConsola implements IVMenu{
     public void cerrar() {
         System.out.println("Saliendo de menu Principal .....");
     }
+
+
+    @Override
+    public String getnombreJugador() {
+//        return validar.inString();
+        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
+    }
+
+    @Override
+    public int getPuntosMaximos() {
+//        return validar.inInt();
+        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
+    }
+    
 }

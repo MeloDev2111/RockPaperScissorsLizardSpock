@@ -4,6 +4,8 @@ import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.IVPartida;
 import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
+import Modelo.JugadorBot;
+import Modelo.JugadorPersona;
 import Modelo.Partida;
 import Modelo.TiposPartida;
 
@@ -22,18 +24,21 @@ public class PresentadorMenu {
     public void iniciarPartidaJvJ(){
         mPartida.setTipo(TiposPartida.JvJ);
         //INICIAR VISTA PARTIDA - MODO JVJ
+        crearPartida();
         mostrarVistaPartida();
     }
     
     public void iniciarPartidaJvB(){
         mPartida.setTipo(TiposPartida.JvB);
         //INICIAR VISTA PARTIDA - MODO JVB
+        crearPartida();
         mostrarVistaPartida();
     }
     
     public void iniciarPartidaBvB(){
         mPartida.setTipo(TiposPartida.BvB);
         //INICIAR VISTA PARTIDA - MODO BVB
+        crearPartida();
         mostrarVistaPartida();
     }
     
@@ -43,6 +48,38 @@ public class PresentadorMenu {
     
     public void mostrarCreditos(){
         
+    }
+    
+    public void crearPartida(){
+        this.establecerPuntosMaximos();
+        this.registrarJugadores();
+        this.establecerTitulo();
+    }
+    
+    private void establecerTitulo(){
+        mPartida.setIdPartida("00001");
+        //METODOS QUE DETERMINA EL ID DE LA PARTIDA
+    }
+    
+    private void establecerPuntosMaximos(){
+        mPartida.setAlMejorDe(vista.getPuntosMaximos());
+    }
+    
+    private void registrarJugadores(){
+        switch (mPartida.getTipo()) {
+            case JvJ:
+                mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );  
+                mPartida.setJugador2( new JugadorPersona(vista.getnombreJugador()) );
+                break;
+            case JvB:
+                mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );
+                mPartida.setJugador2( new JugadorBot());    
+                break;
+            case BvB:
+                mPartida.setJugador1( new JugadorBot("DayanBOT"));
+                mPartida.setJugador2( new JugadorBot("BuenardoBOT"));    
+                break;    
+        }
     }
     
     private void mostrarVistaPartida(){

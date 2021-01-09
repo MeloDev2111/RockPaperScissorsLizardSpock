@@ -1,7 +1,6 @@
 package MVP_Pasiva.Vista;
 
 import MVP_Pasiva.Presentador.PresentadorMenu;
-import Modelo.TiposPartida;
 import javax.swing.JFrame;
 
 /**
@@ -10,8 +9,8 @@ import javax.swing.JFrame;
  */
 public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
     private JFrame frame = new JFrame("Menu Rock Paper Scissor Lizard Spock");
+    private Validacion validar = new Validacion();
     private PresentadorMenu presentador;
-    private TiposPartida tipoPartida;
     
     public VMenuSwing() {
         initComponents();
@@ -180,5 +179,15 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
     @Override
     public void cerrar() {
         frame.dispose();
+    }
+    
+    @Override
+    public String getnombreJugador() {
+        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
+    }
+
+    @Override
+    public int getPuntosMaximos() {
+        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
     }
 }

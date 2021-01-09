@@ -18,30 +18,6 @@ public class PresentadorPartida {
         this.vista = vista;
         this.mPartida = mPartida;
     }
-    //Primer RUN
-    public void establecerTitulo(){
-        mPartida.setIdPartida("00001");
-    }
-    public void establecerPuntosMaximos(){
-        mPartida.setAlMejorDe(vista.getPuntosMaximos());
-    }
-    
-    public void registrarJugadores(){
-        switch (mPartida.getTipo()) {
-            case JvJ:
-                mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );  
-                mPartida.setJugador2( new JugadorPersona(vista.getnombreJugador()) );
-                break;
-            case JvB:
-                mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );
-                mPartida.setJugador2( new JugadorBot());    
-                break;
-            case BvB:
-                mPartida.setJugador1( new JugadorBot("DayanBOT"));
-                mPartida.setJugador2( new JugadorBot("BuenardoBOT"));    
-                break;    
-        }
-    }
     
     //Actualizar Info
     public void ActualizarInformacion(){
@@ -77,6 +53,7 @@ public class PresentadorPartida {
         }
         this.vista.cerrar();
     }
+    
     public void salirMenu(){
         IVMenu vistaMenu = new VMenuSwing();
         Partida partidaNva = new Partida();

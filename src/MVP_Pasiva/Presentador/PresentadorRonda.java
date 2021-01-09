@@ -40,7 +40,7 @@ public class PresentadorRonda {
         IVPartida vistaPartida = new VPartidaSwing();
         PresentadorPartida presentadorPartida = new PresentadorPartida(vistaPartida, this.mPartida);
         vistaPartida.setPresentador(presentadorPartida);
-        vistaPartida.mostrar();
+        vistaPartida.iniciar();
         this.vista.cerrar();
     }
     

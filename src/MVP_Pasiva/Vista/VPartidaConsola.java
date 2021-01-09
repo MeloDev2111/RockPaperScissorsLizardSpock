@@ -12,19 +12,9 @@ public class VPartidaConsola implements IVPartida {
     public void setPresentador(PresentadorPartida p) {
         presentador = p;
     }
-
-    @Override
-    public void iniciar() {
-        //DATOS NECESARIOS 
-        presentador.establecerPuntosMaximos();
-        presentador.registrarJugadores();
-        presentador.establecerTitulo();
-        //cargar datos
-        mostrar();
-    }
     
     @Override
-    public void mostrar() {
+    public void iniciar() {
         presentador.ActualizarInformacion();
     }
     
@@ -32,19 +22,6 @@ public class VPartidaConsola implements IVPartida {
     public void cerrar() {
         System.out.println("SALIENDO DE VISTA PARTIDA");
     }
-
-    @Override
-    public String getnombreJugador() {
-//        return validar.inString();
-        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
-    }
-
-    @Override
-    public int getPuntosMaximos() {
-//        return validar.inInt();
-        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
-    }
-
     @Override
     public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador) {
         System.out.println("Score J1: "+ scoreJ1);

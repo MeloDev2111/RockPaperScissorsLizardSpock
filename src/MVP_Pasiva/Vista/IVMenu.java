@@ -6,4 +6,6 @@ public interface IVMenu {
     public void setPresentador(PresentadorMenu p);
     public void iniciar();
     public void cerrar();
+    public String getnombreJugador();
+    public int getPuntosMaximos();
 }
