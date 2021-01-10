@@ -14,6 +14,9 @@ public class Ronda {
         this.jugada_Jugador1 = jugada_Jugador1;
         this.jugada_Jugador2 = jugada_Jugador2;
     }
+
+    public Ronda() {
+    }
     
     
     public void evaluarGanadorRonda(){
@@ -54,6 +57,11 @@ public class Ronda {
 
     public void setGanadorRonda(Jugador ganadorRonda) {
         this.ganadorRonda = ganadorRonda;
+    }
+
+    @Override
+    public String toString() {
+        return "Ronda{" + "numeroRonda=" + numeroRonda + ", jugada_Jugador1=" + jugada_Jugador1 + ", jugada_Jugador2=" + jugada_Jugador2 + ", ganadorRonda=" + ganadorRonda + '}';
     }
     
     

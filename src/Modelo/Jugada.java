@@ -9,6 +9,9 @@ public class Jugada {
         this.jugador = jugador;
         this.jugada_Seleccionada = jugada_Seleccionada;
     }  
+
+    public Jugada() {
+    }
     
     //
     public Jugador getJugador() {

@@ -1,6 +1,6 @@
 package Modelo;
 
-public abstract class Jugador {
+public class Jugador {
     private String nombreJugador;
     private TiposJugador tipo;
 
@@ -8,9 +8,15 @@ public abstract class Jugador {
         this.nombreJugador = nombreJugador;
         this.tipo = tipo;
     }
+
+    public Jugador() {
+    }
     
     
-    public abstract OpcionesJugada jugar();
+    public OpcionesJugada jugar(){
+        int indiceRandom=(int)( Math.random()*(OpcionesJugada.values().length-1) );
+        return OpcionesJugada.values()[indiceRandom]; 
+    }
     
     public String getNombreJugador() {
         return nombreJugador;

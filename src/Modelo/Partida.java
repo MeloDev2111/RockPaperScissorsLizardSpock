@@ -12,12 +12,10 @@ public class Partida {
     private Jugador ganador;
     
     private ArrayList<Ronda> Rondas = new ArrayList();
-    private int nroRonda=1;
     private int alMejorDe=3;
     
     public void agregarRonda(Ronda r){
         Rondas.add(r);
-        nroRonda++;
     }
     public void evaluarGanadorPartida(){
         scorej1=0; scorej2=0;
@@ -30,10 +28,10 @@ public class Partida {
                 scorej2++;
             }
         }
-        if (scorej1==this.alMejorDe) {
+        if (scorej1>=this.alMejorDe) {
             this.ganador=this.jugador1;
         }
-        if (scorej2==this.alMejorDe) {
+        if (scorej2>=this.alMejorDe) {
             this.ganador=jugador2;
         }
     }
@@ -108,19 +106,20 @@ public class Partida {
     }
 
     public int getNroRonda() {
-        return nroRonda;
+        return Rondas.size();
     }
 
-    public void setNroRonda(int nroRonda) {
-        this.nroRonda = nroRonda;
-    }
-    
     public int getAlMejorDe() {
         return alMejorDe;
     }
 
     public void setAlMejorDe(int alMejorDe) {
         this.alMejorDe = alMejorDe;
+    }
+
+    @Override
+    public String toString() {
+        return "Partida{" + "IdPartida=" + IdPartida + ", tipo=" + tipo + ", jugador1=" + jugador1 + ", jugador2=" + jugador2 + ", scorej1=" + scorej1 + ", scorej2=" + scorej2 + ", ganador=" + ganador + ", Rondas=" + Rondas + ", alMejorDe=" + alMejorDe + '}';
     }
     
     
