@@ -7,11 +7,14 @@ import MVP_Pasiva.Vista.VRondaSwing;
 import Modelo.Jugada;
 import Modelo.Partida;
 import Modelo.Ronda;
+import Modelo.ServicioJugadaBOT;
 
 public class PresentadorJugada {
     IVJugada vista;
     Partida mPartida;
     Ronda mRonda;
+    ServicioJugadaBOT servicio = new ServicioJugadaBOT();
+                
     public PresentadorJugada(IVJugada vista, Partida mPartida, Ronda mRonda) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -46,12 +49,22 @@ public class PresentadorJugada {
                 break;
             case JvB:
                 if (mRonda.getJugada_Jugador1()==null) {
+//                    Jugada jugadaJ1 = new Jugada();
+//                    jugadaJ1.setJugador(mPartida.getJugador1());
+//                    
+//                    jugadaJ1.setJugada_Seleccionada(vista.getJugada());
+                    
+//                    jugadaJ1 = servicio.jugar(jugadaJ1);
                     Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
                             vista.getJugada());
                     mRonda.setJugada_Jugador1(jugadaJ1);
                 }else if(mRonda.getJugada_Jugador2()==null){
-                    Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
-                           mPartida.getJugador2().jugar());
+                    Jugada jugadaJ2 = new Jugada();
+                    jugadaJ2.setJugador(mPartida.getJugador2());
+                    jugadaJ2 = servicio.jugar(jugadaJ2);
+                    
+//                    Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
+//                           mPartida.getJugador2().jugar());
                     
                     mRonda.setJugada_Jugador2(jugadaJ2);
                 }else{
@@ -59,10 +72,19 @@ public class PresentadorJugada {
                 }
                 break;
             case BvB:
-                Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
-                           mPartida.getJugador1().jugar());
-                Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
-                           mPartida.getJugador2().jugar());
+                Jugada jugadaJ1 = new Jugada();
+                jugadaJ1.setJugador(mPartida.getJugador1());
+                jugadaJ1 = servicio.jugar(jugadaJ1);
+                
+                Jugada jugadaJ2 = new Jugada();
+                jugadaJ2.setJugador(mPartida.getJugador2());
+                jugadaJ2 = servicio.jugar(jugadaJ2);
+                
+                
+//                Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
+//                           mPartida.getJugador1().jugar());
+//                Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
+//                           mPartida.getJugador2().jugar());
                     
                 mRonda.setJugada_Jugador1(jugadaJ1);
                 mRonda.setJugada_Jugador2(jugadaJ2);

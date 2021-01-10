@@ -7,12 +7,14 @@ import Modelo.JugadorPersona;
 import Modelo.Partida;
 import Modelo.Ronda;
 import MVP_Pasiva.Vista.IVPartida_Ver01;
+import Modelo.ServicioJugadaBOT;
 
 public class Presentador_Version_01 {
     private IVPartida_Ver01 vista;
     private Ronda ronda;
     private Partida mPartida;
-
+    ServicioJugadaBOT servicio = new ServicioJugadaBOT();
+    
     public Presentador_Version_01(IVPartida_Ver01 vista, Partida mPartida) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -51,8 +53,12 @@ public class Presentador_Version_01 {
                 case JvJ:
                     jugada_j2 = new Jugada(j2, vista.getJugada(j2));
                     break;
-                case JvB:
-                    jugada_j2 = new Jugada(j2, j2.jugar());
+                case JvB:;
+                    jugada_j2=new Jugada();
+                    jugada_j2.setJugador(j2);
+                    jugada_j2= servicio.jugar(jugada_j2);
+                
+//                    jugada_j2 = new Jugada(j2, j2.jugar());
                     break;    
             }
             ronda = new Ronda(nroRonda,jugada_j1,jugada_j2);
