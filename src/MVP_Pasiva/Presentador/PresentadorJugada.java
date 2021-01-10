@@ -35,56 +35,54 @@ public class PresentadorJugada {
         switch (mPartida.getTipo()) {
             case JvJ:
                 if (mRonda.getJugada_Jugador1()==null) {
-                    Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
-                            vista.getJugada());
+                    Jugada jugadaJ1 = new Jugada();
+                    jugadaJ1.setJugador(mPartida.getJugador1());
+                    jugadaJ1.setJugada_Seleccionada(vista.getJugada());
+
                     mRonda.setJugada_Jugador1(jugadaJ1);
+                    
                 }else if(mRonda.getJugada_Jugador2()==null){
-                    Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
-                            vista.getJugada());
+                    Jugada jugadaJ2 = new Jugada();
+                    jugadaJ2.setJugador(mPartida.getJugador2());
+                    jugadaJ2.setJugada_Seleccionada(vista.getJugada());
+                    
                     mRonda.setJugada_Jugador2(jugadaJ2);
+                    
                 }else{
-                    System.out.println("WTF ESTO YA NO PASA");
+                    System.out.println("EL TRUQUITO FALLO EN RegistrarJugada - JVJ-PresentadoJugada");
                 }
                 
                 break;
             case JvB:
                 if (mRonda.getJugada_Jugador1()==null) {
-//                    Jugada jugadaJ1 = new Jugada();
-//                    jugadaJ1.setJugador(mPartida.getJugador1());
-//                    
-//                    jugadaJ1.setJugada_Seleccionada(vista.getJugada());
+                    Jugada jugadaJ1 = new Jugada();
+                    jugadaJ1.setJugador(mPartida.getJugador1());
+                    jugadaJ1.setJugada_Seleccionada(vista.getJugada());
                     
-//                    jugadaJ1 = servicio.jugar(jugadaJ1);
-                    Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
-                            vista.getJugada());
                     mRonda.setJugada_Jugador1(jugadaJ1);
+                    
                 }else if(mRonda.getJugada_Jugador2()==null){
                     Jugada jugadaJ2 = new Jugada();
                     jugadaJ2.setJugador(mPartida.getJugador2());
+                    
                     jugadaJ2 = servicio.jugar(jugadaJ2);
                     
-//                    Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
-//                           mPartida.getJugador2().jugar());
-                    
                     mRonda.setJugada_Jugador2(jugadaJ2);
+                    
                 }else{
-                    System.out.println("WTF ESTO YA NO PASA");
+                    System.out.println("EL TRUQUITO FALLO EN RegistrarJugada - JVB-PresentadoJugada");
                 }
                 break;
             case BvB:
                 Jugada jugadaJ1 = new Jugada();
                 jugadaJ1.setJugador(mPartida.getJugador1());
+                
                 jugadaJ1 = servicio.jugar(jugadaJ1);
                 
                 Jugada jugadaJ2 = new Jugada();
                 jugadaJ2.setJugador(mPartida.getJugador2());
+                
                 jugadaJ2 = servicio.jugar(jugadaJ2);
-                
-                
-//                Jugada jugadaJ1 = new Jugada(mPartida.getJugador1(),
-//                           mPartida.getJugador1().jugar());
-//                Jugada jugadaJ2 = new Jugada(mPartida.getJugador2(),
-//                           mPartida.getJugador2().jugar());
                     
                 mRonda.setJugada_Jugador1(jugadaJ1);
                 mRonda.setJugada_Jugador2(jugadaJ2);
@@ -94,7 +92,7 @@ public class PresentadorJugada {
     public void mostrarSiguienteVista(){
         
         if (mRonda.getJugada_Jugador1()!=null && mRonda.getJugada_Jugador2()!=null){
-            mRonda.evaluarGanadorRonda();
+            mRonda.evaluarGanadorRonda();//////SERVICIOOOO POR IMPLEMENTAR
             //MOSTRAR VISTA RONDA CON EL RESULTADO
             mostrarVistaRonda();
         }
@@ -111,6 +109,7 @@ public class PresentadorJugada {
                     IVJugada vistaJugada = new VJugadaSwing();//GETCLASS()!!!!!!!
                     PresentadorJugada presetandorJugada = new PresentadorJugada(vistaJugada, mPartida,mRonda);
                     vistaJugada.setPresentador(presetandorJugada);
+                    
                     //SOLO EJECUTAR EL METODO REGISTRA JUGADA Y ABRIR EL VISTA RONDA
                     presetandorJugada.RegistrarJugada();
                     presetandorJugada.mostrarSiguienteVista();
@@ -128,7 +127,7 @@ public class PresentadorJugada {
         
     }
     private void mostrarVistaRonda(){
-        IVRonda vistaRonda = new VRondaSwing();
+        IVRonda vistaRonda = new VRondaSwing();//GETCLASS()!!!!!!! FALTA IMPLEMENTAR EL HACK DE VISTA MENU
         PresentadorRonda presentadorRonda = new PresentadorRonda(vistaRonda, mPartida, mRonda);
         vistaRonda.setPresentador(presentadorRonda);
         vistaRonda.iniciar();

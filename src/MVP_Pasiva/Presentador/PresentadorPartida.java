@@ -5,8 +5,6 @@ import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.IVPartida;
 import MVP_Pasiva.Vista.VJugadaSwing;
 import MVP_Pasiva.Vista.VMenuSwing;
-import Modelo.JugadorBot;
-import Modelo.JugadorPersona;
 import Modelo.Partida;
 import Modelo.Ronda;
 

@@ -2,8 +2,6 @@ package MVP_Pasiva.Presentador;
 
 import Modelo.Jugada;
 import Modelo.Jugador;
-import Modelo.JugadorBot;
-import Modelo.JugadorPersona;
 import Modelo.Partida;
 import Modelo.Ronda;
 import MVP_Pasiva.Vista.IVPartida_Ver01;
@@ -14,6 +12,8 @@ public class Presentador_Version_01 {
     private Ronda ronda;
     private Partida mPartida;
     ServicioJugadaBOT servicio = new ServicioJugadaBOT();
+    Jugador j1;
+    Jugador j2;
     
     public Presentador_Version_01(IVPartida_Ver01 vista, Partida mPartida) {
         this.vista = vista;
@@ -32,12 +32,24 @@ public class Presentador_Version_01 {
     public void registrarJugador(){
             switch (mPartida.getTipo()) {
                 case JvJ:
-                    mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );  
-                    mPartida.setJugador2( new JugadorPersona(vista.getnombreJugador()) );
+                    j1 = new Jugador();
+                    j1.setNombreJugador(vista.getnombreJugador());
+                    mPartida.setJugador1( j1 );
+                    
+                    j2 = new Jugador();
+                    j2.setNombreJugador(vista.getnombreJugador());
+                    
+                    mPartida.setJugador2( j2 );
                     break;
                 case JvB:
-                    mPartida.setJugador1( new JugadorPersona(vista.getnombreJugador()) );
-                    mPartida.setJugador1( new JugadorBot("PablitoBot") );    
+                    j1 = new Jugador();
+                    j1.setNombreJugador(vista.getnombreJugador());
+                    mPartida.setJugador1( j1 );
+                    
+                    j2 = new Jugador();
+                    j2.setNombreJugador("PablitoBOT");
+                    mPartida.setJugador2( j2 );
+                     
                     break;
             }
     }

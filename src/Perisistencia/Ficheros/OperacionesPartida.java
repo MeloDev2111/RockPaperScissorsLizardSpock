@@ -80,7 +80,9 @@ public class OperacionesPartida extends operaciones{
                 if (j==1) {
                     r.setJugada_Jugador1(jugada_j1);
                     r.setJugada_Jugador2(jugada_j2);
+                    
                     r.evaluarGanadorRonda();//ESTO VA SER UN SERVICIO
+                    
                     p1.agregarRonda(r);
                     r= new Ronda(nroRonda);
                     j=-1;
