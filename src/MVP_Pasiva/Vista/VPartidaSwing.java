@@ -1,7 +1,6 @@
 package MVP_Pasiva.Vista;
 
 import MVP_Pasiva.Presentador.PresentadorPartida;
-import java.io.File;
 import javax.swing.JFrame;
 
 public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{

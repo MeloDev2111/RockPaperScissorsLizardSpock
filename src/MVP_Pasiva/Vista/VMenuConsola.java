@@ -31,14 +31,11 @@ public class VMenuConsola implements IVMenu{
                     presentador.mostrarMenuCargarPartidas();
                     break;
                 case 5:
-                    presentador.mostrarCreditos();
-                    break;
-                case 6:
                     System.out.println("HASTA LA PROXIMA!");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("OPCIONES ENTRE 1 Y 6");
+                    System.out.println("OPCIONES ENTRE 1 Y 5");
                     break;
             }
         }while(op!=6);
@@ -50,8 +47,7 @@ public class VMenuConsola implements IVMenu{
         System.out.println("2.- Jugador contra BOT");
         System.out.println("3.- BOT Contra BOT");
         System.out.println("4.- Cargar Partida");
-        System.out.println("5.- Creditos");
-        System.out.println("6.- Salir");
+        System.out.println("5.- Salir");
         System.out.println("Elija una opción");
     }
 

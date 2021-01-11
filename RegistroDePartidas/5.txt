@@ -1,0 +1,9 @@
+5
+3
+BvB
+DayanBOT
+BOT
+BuenardoBOT
+BOT
+SCISSORS
+PAPER

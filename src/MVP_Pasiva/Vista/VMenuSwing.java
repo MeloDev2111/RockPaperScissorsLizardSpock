@@ -30,7 +30,7 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
         btnPartidaJvB = new javax.swing.JButton();
         btnPartidaBvB = new javax.swing.JButton();
         btnCargarPartida = new javax.swing.JButton();
-        btnCreditos = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         panelTituloMenu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -62,10 +62,12 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
             }
         });
 
-        btnCreditos.setText("CREDITOS");
-        btnCreditos.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 51, 51));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreditosActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -80,7 +82,7 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
                     .addComponent(btnPartidaJvB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPartidaBvB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCargarPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreditos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(118, 118, 118))
         );
         panelMenuOpcionesLayout.setVerticalGroup(
@@ -94,7 +96,7 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
                 .addGap(18, 18, 18)
                 .addComponent(btnCargarPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCreditos, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -145,17 +147,17 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
         presentador.mostrarMenuCargarPartidas();
     }//GEN-LAST:event_btnCargarPartidaActionPerformed
 
-    private void btnCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditosActionPerformed
-        presentador.mostrarCreditos();
-    }//GEN-LAST:event_btnCreditosActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarPartida;
-    private javax.swing.JButton btnCreditos;
     private javax.swing.JButton btnPartidaBvB;
     private javax.swing.JButton btnPartidaJvB;
     private javax.swing.JButton btnPartidaJvJ;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panelMenuOpciones;
     private javax.swing.JPanel panelTituloMenu;

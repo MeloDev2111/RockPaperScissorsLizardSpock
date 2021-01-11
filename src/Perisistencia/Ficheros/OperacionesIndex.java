@@ -58,31 +58,26 @@ public class OperacionesIndex extends operaciones{
             }
             
             nroPartidas=Listadirs.size();
-            System.out.println("NRO DE PARTIDAS");
-            System.out.println(nroPartidas);
             
             if (nroPartidas==0) {
                 return null;
             }
             
-            Object P[][] = new Object[nroPartidas][5];
+            Object P[][] = new Object[nroPartidas][7];
             int i=0;
             for (String dirPartida : Listadirs) {
                 File fichero = new File(dirPartida);
 
                 if (fichero.exists()) {
-                    BufferedReader br2 = new BufferedReader( new FileReader(dirPartida));
-                    Line = br2.readLine();
-                    for (int j = 0; j < 5; j++) {
+                    br = new BufferedReader( new FileReader(dirPartida));
+                    Line = br.readLine();
+                    for (int j = 0; j < 7; j++) {
                         P[i][j]= Line;
-                        System.out.println("LINEA");
-                        System.out.println(P[i][j].toString());
-                        Line = br2.readLine();
+                        Line = br.readLine();
                     }
                     i++;
                 }
             }  
-            System.out.println(P.toString());
             return P;
             
         } catch (Exception ex) {

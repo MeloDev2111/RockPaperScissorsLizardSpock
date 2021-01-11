@@ -41,7 +41,8 @@ public class OperacionesPartida extends operaciones{
                         .getJugada_Seleccionada().name());
             }
             JOptionPane.showMessageDialog(null,"PARTIDA GUARDADA",
-                    "ERROR",JOptionPane.OK_OPTION);
+                    "GUARDADO",JOptionPane.INFORMATION_MESSAGE);
+            
         }catch(Exception e){
             System.out.println("ERROR AL GUARDAR PARTIDA");
         }

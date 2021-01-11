@@ -61,14 +61,14 @@ public class VCargarPartidaSwing extends javax.swing.JPanel implements IVCargarP
         tablePartidas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tablePartidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "idPartida", "tipoPartida", "Jugador 1", "Jugador 2", "PtosMaximos"
+                "idPartida", "PtosMaximos", "tipoPartida", "Jugador 1", "Tipo J1", "Jugador 2", "Tipo J2"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -82,6 +82,8 @@ public class VCargarPartidaSwing extends javax.swing.JPanel implements IVCargarP
             tablePartidas.getColumnModel().getColumn(2).setResizable(false);
             tablePartidas.getColumnModel().getColumn(3).setResizable(false);
             tablePartidas.getColumnModel().getColumn(4).setResizable(false);
+            tablePartidas.getColumnModel().getColumn(5).setResizable(false);
+            tablePartidas.getColumnModel().getColumn(6).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -199,7 +201,8 @@ public class VCargarPartidaSwing extends javax.swing.JPanel implements IVCargarP
         this.tablePartidas.setModel(new javax.swing.table.DefaultTableModel(
             listaPartidas,
             new String [] {
-                "idPartida", "tipoPartida", "Jugador 1", "Jugador 2", "PtosMaximos"
+                "idPartida", "PtosMaximos","tipoPartida", "Jugador 1",
+                "Tipo J1","Jugador 2", "Tipo J2"
             }
         ));
     }

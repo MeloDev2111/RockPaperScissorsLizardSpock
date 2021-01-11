@@ -44,7 +44,7 @@
                       <Component id="btnPartidaJvB" alignment="2" max="32767" attributes="0"/>
                       <Component id="btnPartidaBvB" alignment="2" max="32767" attributes="0"/>
                       <Component id="btnCargarPartida" alignment="2" max="32767" attributes="0"/>
-                      <Component id="btnCreditos" alignment="2" max="32767" attributes="0"/>
+                      <Component id="btnSalir" alignment="2" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               </Group>
@@ -61,7 +61,7 @@
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCargarPartida" pref="50" max="32767" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCreditos" pref="51" max="32767" attributes="0"/>
+                  <Component id="btnSalir" pref="51" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -99,12 +99,18 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarPartidaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCreditos">
+        <Component class="javax.swing.JButton" name="btnSalir">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CREDITOS"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="SALIR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreditosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

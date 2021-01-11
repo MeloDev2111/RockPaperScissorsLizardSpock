@@ -58,10 +58,6 @@ public class PresentadorMenu {
         this.vista.cerrar();
     }
     
-    public void mostrarCreditos(){
-        
-    }
-    
     public void crearPartida(){
         this.establecerPuntosMaximos();
         this.registrarJugadores();
