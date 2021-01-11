@@ -5,12 +5,14 @@ import MVP_Pasiva.Vista.IVRonda;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Partida;
 import Modelo.Ronda;
+import Modelo.ServicioPartida;
 
 public class PresentadorRonda {
-    IVRonda vista;
-    Partida mPartida;
-    Ronda mRonda;
+    private IVRonda vista;
+    private Partida mPartida;
+    private Ronda mRonda;
     
+    ServicioPartida servicioPartida = new ServicioPartida();
     public PresentadorRonda(IVRonda vista, Partida mPartida, Ronda mRonda) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -21,8 +23,8 @@ public class PresentadorRonda {
         vista.setNroRonda(mRonda.getNumeroRonda());
         vista.setNombreJugadores(mPartida.getJugador1().getNombreJugador()
                             , mPartida.getJugador2().getNombreJugador());
-        vista.setJugadas(mRonda.getJugada_Jugador1().getJugada_Seleccionada().toString(),
-                mRonda.getJugada_Jugador2().getJugada_Seleccionada().toString());
+        vista.setJugadas(mRonda.getJugada_Jugador1().getJugada_Seleccionada().name(),
+                mRonda.getJugada_Jugador2().getJugada_Seleccionada().name());
         
         if (mRonda.getGanadorRonda()!=null) {
            vista.setSalida(mRonda.getGanadorRonda().getNombreJugador());
@@ -33,7 +35,7 @@ public class PresentadorRonda {
     
     public void agregarRonda(){
         mPartida.agregarRonda(mRonda);
-        mPartida.evaluarGanadorPartida();
+        mPartida = servicioPartida.evaluarGanador(mPartida);
     }
     
     public void mostrarVistaPartida(){

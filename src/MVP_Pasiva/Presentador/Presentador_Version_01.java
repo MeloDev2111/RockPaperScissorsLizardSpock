@@ -55,32 +55,32 @@ public class Presentador_Version_01 {
     }
     
     public void jugar(){
-        int nroRonda=1;
-        do{
-            Jugador j1 = mPartida.getJugador1();
-            Jugador j2 = mPartida.getJugador2();
-            Jugada jugada_j1 = new Jugada(j1, vista.getJugada(j1));
-            Jugada jugada_j2=null;
-            switch (mPartida.getTipo()) {
-                case JvJ:
-                    jugada_j2 = new Jugada(j2, vista.getJugada(j2));
-                    break;
-                case JvB:;
-                    jugada_j2=new Jugada();
-                    jugada_j2.setJugador(j2);
-                    jugada_j2= servicio.jugar(jugada_j2);
-                
+//        int nroRonda=1;
+//        do{
+//            Jugador j1 = mPartida.getJugador1();
+//            Jugador j2 = mPartida.getJugador2();
+//            Jugada jugada_j1 = new Jugada(j1, vista.getJugada(j1));
+//            Jugada jugada_j2=null;
+//            switch (mPartida.getTipo()) {
+//                case JvJ:
+//                    jugada_j2 = new Jugada(j2, vista.getJugada(j2));
+//                    break;
+//                case JvB:;
+//                    jugada_j2=new Jugada();
+//                    jugada_j2.setJugador(j2);
+//                    jugada_j2= servicio.jugar(jugada_j2);
+//                
 //                    jugada_j2 = new Jugada(j2, j2.jugar());
-                    break;    
-            }
+//                    break;    
+//            }
 //            ronda = new Ronda(nroRonda,jugada_j1,jugada_j2);
-            ronda.evaluarGanadorRonda();
-            mPartida.agregarRonda(ronda);
-            mPartida.evaluarGanadorPartida();
-        }while (!mPartida.existeGanador());
-        
-        System.out.println("EL GANADOR ES: "+
-                mPartida.getGanador().getNombreJugador());
+//            ronda.evaluarGanadorRonda();
+//            mPartida.agregarRonda(ronda);
+//            mPartida.evaluarGanadorPartida();
+//        }while (!mPartida.existeGanador());
+//        
+//        System.out.println("EL GANADOR ES: "+
+//                mPartida.getGanador().getNombreJugador());
     } 
 }
   

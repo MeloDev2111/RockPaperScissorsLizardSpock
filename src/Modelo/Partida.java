@@ -17,24 +17,6 @@ public class Partida {
     public void agregarRonda(Ronda r){
         Rondas.add(r);
     }
-    public void evaluarGanadorPartida(){
-        scorej1=0; scorej2=0;
-        for (Ronda ronda : Rondas) {
-            Jugador ganadorRonda = ronda.getGanadorRonda();
-            if (ganadorRonda==this.jugador1) {
-                scorej1++;
-            }
-            if (ganadorRonda==this.jugador2) {
-                scorej2++;
-            }
-        }
-        if (scorej1>=this.alMejorDe) {
-            this.ganador=this.jugador1;
-        }
-        if (scorej2>=this.alMejorDe) {
-            this.ganador=jugador2;
-        }
-    }
     
     public boolean existeGanador(){
         return (ganador!=null);

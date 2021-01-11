@@ -13,15 +13,6 @@ public class Ronda {
     public Ronda() {
     }
     
-    
-    public void evaluarGanadorRonda(){
-        Logica logica = new Logica();
-        Jugada jugada_Ganadora = logica.analizar(jugada_Jugador1,jugada_Jugador2);
-        if (jugada_Ganadora != null) {
-            ganadorRonda = jugada_Ganadora.getJugador();
-        }
-    }
-
     public int getNumeroRonda() {
         return numeroRonda;
     }
@@ -59,6 +50,4 @@ public class Ronda {
         return "Ronda{" + "numeroRonda=" + numeroRonda + ", jugada_Jugador1=" + jugada_Jugador1 + ", jugada_Jugador2=" + jugada_Jugador2 + ", ganadorRonda=" + ganadorRonda + '}';
     }
     
-    
-
 }

@@ -5,6 +5,8 @@ import Modelo.Jugador;
 import Modelo.OpcionesJugada;
 import Modelo.Partida;
 import Modelo.Ronda;
+import Modelo.ServicioPartida;
+import Modelo.ServicioRonda;
 import Modelo.TiposJugador;
 import Modelo.TiposPartida;
 import java.io.BufferedReader;
@@ -13,6 +15,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OperacionesPartida extends operaciones{
+    ServicioRonda servicioRonda = new ServicioRonda();
+    ServicioPartida servicioPartida = new ServicioPartida();
     public OperacionesPartida(String dir) {
         super(dir);
     }
@@ -102,7 +106,7 @@ public class OperacionesPartida extends operaciones{
                     r.setJugada_Jugador1(jugada_j1);
                     r.setJugada_Jugador2(jugada_j2);
                     
-                    r.evaluarGanadorRonda();//ESTO VA SER UN SERVICIO
+                    r = servicioRonda.evaluarGanador(r);
                     
                     p1.agregarRonda(r);
                     r= new Ronda(nroRonda);
@@ -116,7 +120,8 @@ public class OperacionesPartida extends operaciones{
         System.out.println("Error");
     }
         
-        p1.evaluarGanadorPartida();//VA SER OTRO SERVICIO
+        p1 = servicioPartida.evaluarGanador(p1);
+       
         return p1;
     }
 }

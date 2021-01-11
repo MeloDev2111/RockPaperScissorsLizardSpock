@@ -96,8 +96,8 @@ public class PresentadorJugada {
     public void mostrarSiguienteVista(){
         
         if (mRonda.getJugada_Jugador1()!=null && mRonda.getJugada_Jugador2()!=null){
-//            mRonda = servicioRonda.evaluarGanador(mRonda);
-            mRonda.evaluarGanadorRonda();//////SERVICIOOOO POR IMPLEMENTAR
+            
+            mRonda = servicioRonda.evaluarGanador(mRonda);
             //MOSTRAR VISTA RONDA CON EL RESULTADO
             mostrarVistaRonda();
         }

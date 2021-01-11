@@ -10,6 +10,7 @@ import MVP_Pasiva.Vista.IVPartida;
 import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Jugador;
+import Modelo.OpcionesJugada;
 import Modelo.Partida;
 import Modelo.Ronda;
 import Modelo.TiposJugador;
@@ -55,6 +56,8 @@ public class ServicioGuardadoFichero {
         vistaPartida.setPresentador(presentadorPartida);
         
         vistaPartida.iniciar();
+//            System.out.println(OpcionesJugada.LIZARD.name());
+//            System.out.println(OpcionesJugada.LIZARD.toString());
 //                
 //          System.out.println(op.getUltimaLinea());
 
