@@ -7,13 +7,13 @@ import MVP_Pasiva.Vista.VJugadaSwing;
 import MVP_Pasiva.Vista.VMenuSwing;
 import Modelo.Partida;
 import Modelo.Ronda;
-import Perisistencia.Ficheros.ServicioGuardadoFichero;
+import Perisistencia.Ficheros.ServicioFicheros;
 
 public class PresentadorPartida {
     private IVPartida vista;
     private Partida mPartida;
     
-    private ServicioGuardadoFichero servicio = new ServicioGuardadoFichero();
+    private ServicioFicheros servicio = new ServicioFicheros();
 
     public PresentadorPartida(IVPartida vista, Partida mPartida) {
         this.vista = vista;

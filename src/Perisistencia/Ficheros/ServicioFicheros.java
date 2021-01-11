@@ -20,7 +20,7 @@ import java.io.File;
  *
  * @author eddyf
  */
-public class ServicioGuardadoFichero {
+public class ServicioFicheros {
     String baseDir="RegistroDePartidas\\";
     
     public void guardarPartida(Partida p){

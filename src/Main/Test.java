@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Main;
 
 import MVP_Pasiva.Presentador.PresentadorMenu;
 import MVP_Pasiva.Presentador.Presentador_Version_01;
@@ -12,6 +12,7 @@ import MVP_Pasiva.Vista.VPartidaConsola_Ver01;
 import MVP_Pasiva.Vista.Validacion;
 import MVP_Pasiva.Vista.IVPartida_Ver01;
 import MVP_Pasiva.Vista.VMenuSwing;
+import Modelo.Partida;
 
 /**
  *

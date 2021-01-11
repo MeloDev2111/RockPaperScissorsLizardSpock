@@ -8,7 +8,7 @@ import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Partida;
 import Perisistencia.Ficheros.OperacionesIndex;
-import Perisistencia.Ficheros.ServicioGuardadoFichero;
+import Perisistencia.Ficheros.ServicioFicheros;
 
 
 public class PresentadorCargarPartida {
@@ -16,7 +16,7 @@ public class PresentadorCargarPartida {
     private Partida mPartida;
     
     private OperacionesIndex index = new OperacionesIndex();
-    private ServicioGuardadoFichero servicioFicheros = new ServicioGuardadoFichero();
+    private ServicioFicheros servicioFicheros = new ServicioFicheros();
     private IVPartida vistaPartida;
 
     public PresentadorCargarPartida(IVCargarPartida vista, Partida mPartida) {
