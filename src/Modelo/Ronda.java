@@ -9,11 +9,6 @@ public class Ronda {
     public Ronda(int numeroRonda) {
         this.numeroRonda = numeroRonda;
     }
-    public Ronda(int numeroRonda, Jugada jugada_Jugador1, Jugada jugada_Jugador2) {
-        this.numeroRonda = numeroRonda;
-        this.jugada_Jugador1 = jugada_Jugador1;
-        this.jugada_Jugador2 = jugada_Jugador2;
-    }
 
     public Ronda() {
     }

@@ -6,14 +6,15 @@ import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Jugador;
 import Modelo.Partida;
+import Modelo.TiposJugador;
 import Modelo.TiposPartida;
+import Perisistencia.Ficheros.OperacionesIndex;
 
 public class PresentadorMenu {
     private IVMenu vista;
     private Partida mPartida;
-    Jugador j1;
-    Jugador j2;
     
+    private OperacionesIndex index = new OperacionesIndex();
     private IVPartida vistaPartida;
     
     public PresentadorMenu(IVMenu vista, Partida mPartida) {
@@ -58,7 +59,7 @@ public class PresentadorMenu {
     }
     
     private void establecerTitulo(){
-        mPartida.setIdPartida("00001");
+        mPartida.setIdPartida(String.valueOf(index.getidNuevaPartida()));
         //METODOS QUE DETERMINA EL ID DE LA PARTIDA
         //SERVICIO FICHEROS IMPLEMENTAR
     }
@@ -68,36 +69,27 @@ public class PresentadorMenu {
     }
     
     private void registrarJugadores(){
-                    
+        
         switch (mPartida.getTipo()) {
             case JvJ:
-                j1 = new Jugador();
-                j1.setNombreJugador(vista.getnombreJugador());
-                mPartida.setJugador1(j1);
+                mPartida.setJugador1( new Jugador(vista.getnombreJugador(),
+                                TiposJugador.PERSONA) );  
                 
-                j2 = new Jugador();
-                j2.setNombreJugador(vista.getnombreJugador());
-                mPartida.setJugador2(j2);
-                
+                mPartida.setJugador2( new Jugador(vista.getnombreJugador(),
+                                TiposJugador.PERSONA) );
                 break;
             case JvB:
-                j1 = new Jugador();
-                j1.setNombreJugador(vista.getnombreJugador());
-                mPartida.setJugador1(j1);
+                mPartida.setJugador1( new Jugador(vista.getnombreJugador(),
+                                TiposJugador.PERSONA) );
                 
-                j2 = new Jugador();
-                j2.setNombreJugador("PablitoBOT");
-                mPartida.setJugador2(j2);  
+                mPartida.setJugador2( new Jugador("PablitoBOT", 
+                                TiposJugador.BOT));    
                 break;
             case BvB:
-                j1 = new Jugador();
-                j1.setNombreJugador("DayanBOT");
-                mPartida.setJugador1(j1);    
-                
-                
-                j2 = new Jugador();
-                j2.setNombreJugador("BuenardoBOT");
-                mPartida.setJugador2(j2);    
+                mPartida.setJugador1( new Jugador("DayanBOT",
+                                TiposJugador.BOT));
+                mPartida.setJugador2( new Jugador("BuenardoBOT",
+                                TiposJugador.BOT));    
                 break;    
         }
     }

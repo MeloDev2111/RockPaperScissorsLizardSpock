@@ -30,28 +30,28 @@ public class Presentador_Version_01 {
     }
     
     public void registrarJugador(){
-            switch (mPartida.getTipo()) {
-                case JvJ:
-                    j1 = new Jugador();
-                    j1.setNombreJugador(vista.getnombreJugador());
-                    mPartida.setJugador1( j1 );
-                    
-                    j2 = new Jugador();
-                    j2.setNombreJugador(vista.getnombreJugador());
-                    
-                    mPartida.setJugador2( j2 );
-                    break;
-                case JvB:
-                    j1 = new Jugador();
-                    j1.setNombreJugador(vista.getnombreJugador());
-                    mPartida.setJugador1( j1 );
-                    
-                    j2 = new Jugador();
-                    j2.setNombreJugador("PablitoBOT");
-                    mPartida.setJugador2( j2 );
-                     
-                    break;
-            }
+//            switch (mPartida.getTipo()) {
+//                case JvJ:
+//                    j1 = new Jugador();
+//                    j1.setNombreJugador(vista.getnombreJugador());
+//                    mPartida.setJugador1( j1 );
+//                    
+//                    j2 = new Jugador();
+//                    j2.setNombreJugador(vista.getnombreJugador());
+//                    
+//                    mPartida.setJugador2( j2 );
+//                    break;
+//                case JvB:
+//                    j1 = new Jugador();
+//                    j1.setNombreJugador(vista.getnombreJugador());
+//                    mPartida.setJugador1( j1 );
+//                    
+//                    j2 = new Jugador();
+//                    j2.setNombreJugador("PablitoBOT");
+//                    mPartida.setJugador2( j2 );
+//                     
+//                    break;
+//            }
     }
     
     public void jugar(){
@@ -73,7 +73,7 @@ public class Presentador_Version_01 {
 //                    jugada_j2 = new Jugada(j2, j2.jugar());
                     break;    
             }
-            ronda = new Ronda(nroRonda,jugada_j1,jugada_j2);
+//            ronda = new Ronda(nroRonda,jugada_j1,jugada_j2);
             ronda.evaluarGanadorRonda();
             mPartida.agregarRonda(ronda);
             mPartida.evaluarGanadorPartida();

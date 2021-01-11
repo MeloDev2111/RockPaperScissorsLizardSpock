@@ -7,13 +7,16 @@ import MVP_Pasiva.Vista.VRondaSwing;
 import Modelo.Jugada;
 import Modelo.Partida;
 import Modelo.Ronda;
+import Modelo.ServicioRonda;
 import Modelo.ServicioJugadaBOT;
 
 public class PresentadorJugada {
     IVJugada vista;
     Partida mPartida;
     Ronda mRonda;
+    
     ServicioJugadaBOT servicio = new ServicioJugadaBOT();
+    ServicioRonda servicioRonda = new ServicioRonda();
                 
     public PresentadorJugada(IVJugada vista, Partida mPartida, Ronda mRonda) {
         this.vista = vista;
@@ -74,6 +77,7 @@ public class PresentadorJugada {
                 }
                 break;
             case BvB:
+                
                 Jugada jugadaJ1 = new Jugada();
                 jugadaJ1.setJugador(mPartida.getJugador1());
                 
@@ -92,6 +96,7 @@ public class PresentadorJugada {
     public void mostrarSiguienteVista(){
         
         if (mRonda.getJugada_Jugador1()!=null && mRonda.getJugada_Jugador2()!=null){
+//            mRonda = servicioRonda.evaluarGanador(mRonda);
             mRonda.evaluarGanadorRonda();//////SERVICIOOOO POR IMPLEMENTAR
             //MOSTRAR VISTA RONDA CON EL RESULTADO
             mostrarVistaRonda();

@@ -37,7 +37,7 @@ public class operaciones{
     }
     
   
-    public void WriteBuff(String l){
+    public void WriteAppendLine(String l){
         try{
             bw = new BufferedWriter(new FileWriter(dir,true));
             bw.write(l);
@@ -57,7 +57,8 @@ public class operaciones{
             System.out.println("Error al borrar");
         }
     }
-    public void CrearFichero(String dir){
+    
+    private void CrearFichero(String dir){
         
         try{
           File registro = new File(dir);
@@ -81,6 +82,29 @@ public class operaciones{
             }else{
                 System.out.println("FICHERO NO EXISTENTE");
             }  
+    }
+    
+    public String getUltimaLinea(){
+        boolean flag = true;
+        try{
+            br = new BufferedReader( new FileReader(this.dir));
+            BufferedReader br2 = new BufferedReader( new FileReader(this.dir));
+            br2.readLine();
+            
+            while (flag) {
+                Line = br.readLine();
+                String nextLine = br2.readLine();
+                if (nextLine==null) {
+                    flag=false;
+                }
+            }
+            
+            return Line;
+        }catch(Exception e){
+            System.out.println("Error al leer");
+        }
+        
+        return null;
     }
     
 }

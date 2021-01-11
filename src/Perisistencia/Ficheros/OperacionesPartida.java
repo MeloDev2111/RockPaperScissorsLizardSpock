@@ -9,6 +9,7 @@ import Modelo.TiposJugador;
 import Modelo.TiposPartida;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OperacionesPartida extends operaciones{
@@ -16,9 +17,29 @@ public class OperacionesPartida extends operaciones{
         super(dir);
     }
     
+    public void guardar(Partida p){
+        LimpiarFichero();
+        WriteAppendLine(p.getIdPartida());
+        WriteAppendLine( String.valueOf(p.getAlMejorDe()) );
+        WriteAppendLine(p.getTipo().name());
+        WriteAppendLine(p.getJugador1().getNombreJugador());
+        WriteAppendLine(p.getJugador1().getTipo().name());
+        WriteAppendLine(p.getJugador2().getNombreJugador());
+        WriteAppendLine(p.getJugador2().getTipo().name());
+        
+        for (Ronda ronda : p.getRondas()) {
+            WriteAppendLine( ronda.getJugada_Jugador1()
+                    .getJugada_Seleccionada().name() );
+            
+            WriteAppendLine( ronda.getJugada_Jugador2()
+                    .getJugada_Seleccionada().name());
+        }
+        
+    }
+    
     public Partida getPartida(){
         Partida p1 = null;
-        ArrayList<Ronda> rondas = new ArrayList<Ronda>();
+        ArrayList<Ronda> rondas = new ArrayList<>();
         int nroRonda=1;
         Ronda r = new Ronda(nroRonda);
         Jugador j1 = new Jugador();
@@ -34,7 +55,7 @@ public class OperacionesPartida extends operaciones{
             br = new BufferedReader( new FileReader(this.dir));
             Line = br.readLine();
             
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 7; i++) {
                 switch (i) {
                     case 0:
                         p1.setIdPartida(Line);
@@ -90,27 +111,12 @@ public class OperacionesPartida extends operaciones{
                 j++;
                 Line = br.readLine();
             }
-        }catch(Exception e){
-            System.out.println("Error");
-        }
+            
+    }catch(IOException | NumberFormatException e){
+        System.out.println("Error");
+    }
+        
         p1.evaluarGanadorPartida();//VA SER OTRO SERVICIO
         return p1;
     }
-     
-//    public void ActualizarFichero(){
-//        try{
-//             this.LimpiarFichero();
-//             for (Reportes.Facturas Factura : m) {
-//                this.WriteBuff(Factura.getNombre());
-//                this.WriteBuff(Factura.getApellido());
-//                this.WriteBuff(Factura.getIdentificacion());
-//                this.WriteBuff(Factura.getFechaDeEmision());
-//                this.WriteBuff(String.valueOf(Factura.getImporteTotal()));
-//                this.WriteBuff(Factura.getArchivo());
-//            }
-//        }catch(Exception e){
-//            System.out.println("Error");
-//        }
-//        
-//    }
 }
