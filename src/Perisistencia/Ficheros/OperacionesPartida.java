@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class OperacionesPartida extends operaciones{
     ServicioRonda servicioRonda = new ServicioRonda();
@@ -22,21 +23,27 @@ public class OperacionesPartida extends operaciones{
     }
     
     public void guardar(Partida p){
-        LimpiarFichero();
-        WriteAppendLine(p.getIdPartida());
-        WriteAppendLine( String.valueOf(p.getAlMejorDe()) );
-        WriteAppendLine(p.getTipo().name());
-        WriteAppendLine(p.getJugador1().getNombreJugador());
-        WriteAppendLine(p.getJugador1().getTipo().name());
-        WriteAppendLine(p.getJugador2().getNombreJugador());
-        WriteAppendLine(p.getJugador2().getTipo().name());
-        
-        for (Ronda ronda : p.getRondas()) {
-            WriteAppendLine( ronda.getJugada_Jugador1()
-                    .getJugada_Seleccionada().name() );
-            
-            WriteAppendLine( ronda.getJugada_Jugador2()
-                    .getJugada_Seleccionada().name());
+        try{
+            LimpiarFichero();
+            WriteAppendLine(p.getIdPartida());
+            WriteAppendLine( String.valueOf(p.getAlMejorDe()) );
+            WriteAppendLine(p.getTipo().name());
+            WriteAppendLine(p.getJugador1().getNombreJugador());
+            WriteAppendLine(p.getJugador1().getTipo().name());
+            WriteAppendLine(p.getJugador2().getNombreJugador());
+            WriteAppendLine(p.getJugador2().getTipo().name());
+
+            for (Ronda ronda : p.getRondas()) {
+                WriteAppendLine( ronda.getJugada_Jugador1()
+                        .getJugada_Seleccionada().name() );
+
+                WriteAppendLine( ronda.getJugada_Jugador2()
+                        .getJugada_Seleccionada().name());
+            }
+            JOptionPane.showMessageDialog(null,"PARTIDA GUARDADA",
+                    "ERROR",JOptionPane.OK_OPTION);
+        }catch(Exception e){
+            System.out.println("ERROR AL GUARDAR PARTIDA");
         }
         
     }

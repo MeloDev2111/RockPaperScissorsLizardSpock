@@ -21,23 +21,37 @@ import java.io.File;
  * @author eddyf
  */
 public class ServicioGuardadoFichero {
+    String baseDir="RegistroDePartidas\\";
     
     public void guardarPartida(Partida p){
         OperacionesIndex index = new OperacionesIndex(); 
-        String dir="RegistroDePartidas\\";
-        String id= String.valueOf( index.getidNuevaPartida() );
-        
-        dir = dir + p.getIdPartida()+".txt";
+        String dir=baseDir+p.getIdPartida()+".txt";
+//        String id= String.valueOf( index.getidNuevaPartida() );
+//        dir = dir + p.getIdPartida()+".txt";
         
         OperacionesPartida fichero = new OperacionesPartida(dir);
         
         try{
             fichero.guardar(p);
-            index.registrarIndexado(id);
+            index.registrarIndexado(p.getIdPartida());
         }catch(Exception e){
             System.out.println("NO SE PUDO GUARDAR");
         }
     }
+    
+    public Partida cargarPartida(String idPartida){ 
+        String dir=baseDir+idPartida+".txt";
+        OperacionesPartida fichero = new OperacionesPartida(dir);
+        
+        try{
+            Partida p = fichero.getPartida();
+            return p;
+        }catch(Exception e){
+            System.out.println("NO SE PUDO CARGAR");
+        }
+        
+        return null;
+    }   
     
     public static void main(String[] args) {
         OperacionesIndex index = new OperacionesIndex(); 

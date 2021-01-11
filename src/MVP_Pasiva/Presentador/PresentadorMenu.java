@@ -1,7 +1,9 @@
 package MVP_Pasiva.Presentador;
 
+import MVP_Pasiva.Vista.IVCargarPartida;
 import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.IVPartida;
+import MVP_Pasiva.Vista.VCargarPartidaSwing;
 import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Jugador;
@@ -45,7 +47,15 @@ public class PresentadorMenu {
     }
     
     public void mostrarMenuCargarPartidas(){
+        IVCargarPartida vistaCargar = new VCargarPartidaSwing();
+        Partida partidaporCargar = new Partida();
         
+        PresentadorCargarPartida presentadorCargar = new 
+            PresentadorCargarPartida(vistaCargar, mPartida);
+        
+        vistaCargar.setPresentador(presentadorCargar);
+        vistaCargar.iniciar();
+        this.vista.cerrar();
     }
     
     public void mostrarCreditos(){
