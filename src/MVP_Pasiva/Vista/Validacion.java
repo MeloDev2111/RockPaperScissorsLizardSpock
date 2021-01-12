@@ -22,17 +22,22 @@ public class Validacion {
         }while (!valido);
         return entrada;
     }
-    public int inInt(){
+    public int inIntPositivo(){
         int entrada = 0;
         boolean valido = false;
         do {
             in = new Scanner(System.in);//MODI
             try {
                 entrada = in.nextInt();
-                valido = true;
+                if (entrada<=0){
+                    this.mostrarErrorOptionPane("Debe ingresar un valor numerico mayor a 0");
+                }else{
+                    valido = true;
+                }
             }catch (Exception e){
                 this.mostrarError("Entero");
             }
+            
         }while (!valido);
         return entrada;
     }

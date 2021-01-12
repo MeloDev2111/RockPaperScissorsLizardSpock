@@ -21,7 +21,7 @@ public class VPartidaConsola implements IVPartida {
         if (!partidafinalizada) {
             do{
                 menu();
-                op=validar.inInt();
+                op=validar.inIntPositivo();
                 switch (op) {
                     case 1:
                         presentador.iniciarRonda();
@@ -41,7 +41,7 @@ public class VPartidaConsola implements IVPartida {
         }else{
             do{
                 menuRestringido();
-                op=validar.inInt();
+                op=validar.inIntPositivo();
                 switch (op) {
                     case 1:
                         presentador.guardarPartida();

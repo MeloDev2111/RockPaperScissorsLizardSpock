@@ -16,7 +16,7 @@ public class VMenuConsola implements IVMenu{
        int op;
         do{
             menu();
-            op=validar.inInt();
+            op=validar.inIntPositivo();
             switch (op) {
                 case 1:
                     presentador.iniciarPartidaJvJ();
@@ -72,7 +72,7 @@ public class VMenuConsola implements IVMenu{
     @Override
     public int getPuntosMaximos() {
         System.out.println("Ingrese el nro de puntos necesarios para ganar:");
-        return validar.inInt();
+        return validar.inIntPositivo();
 //        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
     }
 

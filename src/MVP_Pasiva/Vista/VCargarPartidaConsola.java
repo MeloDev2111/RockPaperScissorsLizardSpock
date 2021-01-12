@@ -19,11 +19,11 @@ public class VCargarPartidaConsola implements IVCargarPartida{
         int op;
         do{
             menu();
-            op=validar.inInt();
+            op=validar.inIntPositivo();
             switch (op) {
                 case 1:
                     System.out.println("INGRESE EL idPartida");
-                    this.id = validar.inInt();
+                    this.id = validar.inIntPositivo();
                     if (exists(id)) {
                         presentador.cargarPartida();
                         op=3;

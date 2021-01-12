@@ -5,6 +5,7 @@
  */
 package Main;
 
+import MVC.Controlador.Controlador;
 import MVP_Pasiva.Presentador.PresentadorMenu;
 import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.Validacion;
@@ -29,14 +30,13 @@ public class Main {
     //MVP VISTA PASIVA ---- CONSOLA
 //        Partida p2 = new Partida();
 //        IVMenu vistaC = new VMenuConsola();
-//        PresentadorMenu pMenuC = new PresentadorMenu(vistaC, p1);
+//        PresentadorMenu pMenuC = new PresentadorMenu(vistaC, p2);
 //        vistaC.setPresentador(pMenuC);
 //        vistaC.iniciar();
     
     //MVC ------------ CONSOLA
-    
-    
-    
+//        Controlador controlador = new Controlador();
+//        controlador.controlar();
     
     }
 }
