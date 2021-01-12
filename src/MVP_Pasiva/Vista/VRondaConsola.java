@@ -25,26 +25,27 @@ public class VRondaConsola implements IVRonda {
 
     @Override
     public void setNroRonda(int NroRonda) {
-        System.out.println("//////////////////////////");
-        System.out.println("\tRONDA Nº: "+NroRonda);
-        System.out.println("//////////////////////////");
+        System.out.println("/////////////////////////////////////");
+        System.out.println("\t\tRONDA Nº: "+NroRonda);
+        System.out.println("/////////////////////////////////////");
     }
 
     @Override
     public void setNombreJugadores(String nombreJ1, String nombreJ2) {
-        System.out.print(nombreJ1+"\t\t");
+        System.out.print("\t"+nombreJ1+"\t\t");
         System.out.println(nombreJ2);
         System.out.println("-------------------------------------");
     }
 
     @Override
     public void setJugadas(String OpJugadaJ1, String OpJugadaJ2) {
-        System.out.print(OpJugadaJ1+"\t VS \t");
+        System.out.print("\t"+OpJugadaJ1+"\t VS \t");
         System.out.println(OpJugadaJ2);
     }   
 
     @Override
     public void setSalida(String nombreGanador) {
+        System.out.println("");
         System.out.println("GANADOR DE LA RONDA: "+nombreGanador);
         System.out.println("-------------------------------------");
     }

@@ -48,9 +48,9 @@ public class VMenuConsola implements IVMenu{
     
     private void menu() {
         System.out.println("<-------------MENU------------->");
-        System.out.println("1.- 2 Jugadores");
-        System.out.println("2.- Jugador contra BOT");
-        System.out.println("3.- BOT Contra BOT");
+        System.out.println("1.- Jugador   VS   Jugador");
+        System.out.println("2.- Jugador   VS   BOT");
+        System.out.println("3.- BOT       VS   BOT");
         System.out.println("4.- Cargar Partida");
         System.out.println("5.- Salir");
         System.out.println("Elija una opción");

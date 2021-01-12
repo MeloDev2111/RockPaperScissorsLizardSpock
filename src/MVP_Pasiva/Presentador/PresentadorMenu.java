@@ -3,6 +3,7 @@ package MVP_Pasiva.Presentador;
 import MVP_Pasiva.Vista.IVCargarPartida;
 import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.IVPartida;
+import MVP_Pasiva.Vista.VCargarPartidaConsola;
 import MVP_Pasiva.Vista.VCargarPartidaSwing;
 import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
@@ -111,7 +112,7 @@ public class PresentadorMenu {
         switch (vista.getTipoVista()) {
             case "Consola":
                 this.vistaPartida = new VPartidaConsola();
-//                this.vistaCargar = new VCargarPartidaConsola();
+                this.vistaCargar = new VCargarPartidaConsola();
                 break;
             case "Swing":
                 this.vistaPartida = new VPartidaSwing();

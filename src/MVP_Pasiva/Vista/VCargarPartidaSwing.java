@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MVP_Pasiva.Vista;
 
 import MVP_Pasiva.Presentador.PresentadorCargarPartida;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author eddyf
- */
+
 public class VCargarPartidaSwing extends javax.swing.JPanel implements IVCargarPartida{
     private JFrame frame = new JFrame("Menu Rock Paper Scissor Lizard Spock");
     private Validacion validar = new Validacion();

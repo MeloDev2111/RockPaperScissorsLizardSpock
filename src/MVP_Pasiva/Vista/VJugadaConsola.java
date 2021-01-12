@@ -31,9 +31,9 @@ public class VJugadaConsola implements IVJugada {
     
     @Override
     public void setNombreJugador(String nombre) {
-        System.out.println("//////////////////////////");
+        System.out.println("/////////////////////////////////////");
         System.out.println("\tTURNO DE:\t"+nombre);
-        System.out.println("//////////////////////////");
+        System.out.println("/////////////////////////////////////");
     }
     
     @Override
@@ -45,13 +45,13 @@ public class VJugadaConsola implements IVJugada {
     
     private void menuJugadas(){
         System.out.println("\tJUGADAS POSIBLES:");
-        System.out.println("++++++++++++++++++++++++");
-        System.out.println("ROCK        (R)");
-        System.out.println("PAPER       (P)");
-        System.out.println("SCISSORS    (S)");
-        System.out.println("LIZARD      (L)");
-        System.out.println("SPOCK       (V)");
-        System.out.println("++++++++++++++++++++++++");
+        System.out.println("++++++++++++++++++++++++++++++++++++");
+        System.out.println("ROCK        \t\t(R)");
+        System.out.println("PAPER       \t\t(P)");
+        System.out.println("SCISSORS    \t\t(S)");
+        System.out.println("LIZARD      \t\t(L)");
+        System.out.println("SPOCK       \t\t(V)");
+        System.out.println("++++++++++++++++++++++++++++++++++++");
         System.out.println("Ingrese el caracter correspondiente");
         System.out.println("-----------------------------------");
     }

@@ -93,7 +93,7 @@ public class VPartidaConsola implements IVPartida {
     
     private void menu(){
         System.out.println("-------------------------------------");
-        System.out.println("Menu - VistaPartida");
+        System.out.println("\tMenu - VistaPartida");
         System.out.println("1.- Iniciar Ronda");
         System.out.println("2.- Guardar Partida");
         System.out.println("3.- Salir al Menu");
@@ -103,7 +103,7 @@ public class VPartidaConsola implements IVPartida {
     
     private void menuRestringido(){
         System.out.println("-------------------------------------");
-        System.out.println("MenuRestringido - VistaPartida");
+        System.out.println("\tMenuRestringido - VistaPartida");
         System.out.println("1.- Guardar Partida");
         System.out.println("2.- Salir al Menu");
         System.out.println("Elija una opción");
