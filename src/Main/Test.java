@@ -6,11 +6,9 @@
 package Main;
 
 import MVP_Pasiva.Presentador.PresentadorMenu;
-import MVP_Pasiva.Presentador.Presentador_Version_01;
 import MVP_Pasiva.Vista.IVMenu;
-import MVP_Pasiva.Vista.VPartidaConsola_Ver01;
 import MVP_Pasiva.Vista.Validacion;
-import MVP_Pasiva.Vista.IVPartida_Ver01;
+import MVP_Pasiva.Vista.VMenuConsola;
 import MVP_Pasiva.Vista.VMenuSwing;
 import Modelo.Partida;
 
@@ -20,8 +18,8 @@ import Modelo.Partida;
  */
 public class Test {
     public static void main(String[] args) {
-//        Jugador j1 = new JugadorPersona("Carlitos");
-//        Jugador j2 = new JugadorBot("PablitoBot");
+//        Jugador j1 = new Jugador("Carlitos");
+//        Jugador j2 = new Jugador("PablitoBot");
 //        
 //        Partida p1 = new Partida();
 //        p1.setJugador1(j1);
@@ -61,7 +59,7 @@ public class Test {
 //          vista.iniciar();
 //VERSION 2.0
           Partida p1 = new Partida();
-          IVMenu vista = new VMenuSwing();
+          IVMenu vista = new VMenuConsola();
           PresentadorMenu p = new PresentadorMenu(vista, p1);
           vista.setPresentador(p);
           vista.iniciar();

@@ -3,7 +3,9 @@ package MVP_Pasiva.Presentador;
 import MVP_Pasiva.Vista.IVJugada;
 import MVP_Pasiva.Vista.IVMenu;
 import MVP_Pasiva.Vista.IVPartida;
+import MVP_Pasiva.Vista.VJugadaConsola;
 import MVP_Pasiva.Vista.VJugadaSwing;
+import MVP_Pasiva.Vista.VMenuConsola;
 import MVP_Pasiva.Vista.VMenuSwing;
 import Modelo.Partida;
 import Modelo.Ronda;
@@ -14,7 +16,9 @@ public class PresentadorPartida {
     private Partida mPartida;
     
     private ServicioFicheros servicio = new ServicioFicheros();
-
+    IVJugada vistaJugada;
+    IVMenu vistaMenu;
+            
     public PresentadorPartida(IVPartida vista, Partida mPartida) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -34,7 +38,7 @@ public class PresentadorPartida {
     }
     //Botones
     public void iniciarRonda(){
-        IVJugada vistaJugada = new VJugadaSwing();
+        establecetTiposVistas();
         Ronda ronda = new Ronda(this.mPartida.getNroRonda());
         PresentadorJugada presetandorJugada = new PresentadorJugada(vistaJugada,
                 mPartida,ronda);
@@ -56,7 +60,8 @@ public class PresentadorPartida {
     }
     
     public void salirMenu(){
-        IVMenu vistaMenu = new VMenuSwing();
+        establecetTiposVistas();
+        
         Partida partidaNva = new Partida();
         PresentadorMenu presentadorMenu = new PresentadorMenu(vistaMenu, partidaNva);
         vistaMenu.setPresentador(presentadorMenu);
@@ -68,4 +73,19 @@ public class PresentadorPartida {
         servicio.guardarPartida(mPartida);
     }
     
+    private void establecetTiposVistas(){
+        switch (vista.getTipoVista()) {
+            case "Consola":
+                this.vistaJugada = new VJugadaConsola();
+                this.vistaMenu = new VMenuConsola();
+                break;
+            case "Swing":
+                this.vistaJugada = new VJugadaSwing();
+                this.vistaMenu = new VMenuSwing();
+                break;
+            default:
+                System.out.println("REVISAR EL GET TIPO DE VISTAS implementadas de IVJugada y IVMenu");
+                throw new AssertionError();
+        }
+    }
 }

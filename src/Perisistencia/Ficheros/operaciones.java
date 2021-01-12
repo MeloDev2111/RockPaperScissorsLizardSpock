@@ -64,7 +64,6 @@ public class operaciones{
           File registro = new File(dir);
           bw = new BufferedWriter(new FileWriter(dir,true));
             if (registro.exists()) {
-                System.out.println("FICHERO EXISTENTE");
             }else{
                 bw.write("");
                 System.out.println("FICHERO CREADO");

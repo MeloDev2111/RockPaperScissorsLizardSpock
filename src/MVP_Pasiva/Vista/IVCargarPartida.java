@@ -8,4 +8,5 @@ public interface IVCargarPartida {
     public void cerrar();
     public void setListaPartidas(Object[][] listaPartidas);
     public String getPartidaSeleccionada();
+    public String getTipoVista();
 }

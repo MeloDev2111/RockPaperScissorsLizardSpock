@@ -26,8 +26,6 @@ public class ServicioFicheros {
     public void guardarPartida(Partida p){
         OperacionesIndex index = new OperacionesIndex(); 
         String dir=baseDir+p.getIdPartida()+".txt";
-//        String id= String.valueOf( index.getidNuevaPartida() );
-//        dir = dir + p.getIdPartida()+".txt";
         
         OperacionesPartida fichero = new OperacionesPartida(dir);
         
@@ -52,29 +50,5 @@ public class ServicioFicheros {
         
         return null;
     }   
-    
-    public static void main(String[] args) {
-        OperacionesIndex index = new OperacionesIndex(); 
-        String dir="RegistroDePartidas\\4.txt";
-        OperacionesPartida op = new OperacionesPartida(dir);
-        Partida p = op.getPartida();
-        
-        
-//        System.out.println(p.toString());
-//        for (Ronda ronda : p.getRondas()) {
-//            System.out.println(ronda.toString());
-//        }
-        IVPartida vistaPartida = new VPartidaSwing();
-        PresentadorPartida presentadorPartida = new PresentadorPartida(vistaPartida, p);
-        
-        vistaPartida.setPresentador(presentadorPartida);
-        
-        vistaPartida.iniciar();
-//            System.out.println(OpcionesJugada.LIZARD.name());
-//            System.out.println(OpcionesJugada.LIZARD.toString());
-//                
-//          System.out.println(op.getUltimaLinea());
-
-    }
    
 }

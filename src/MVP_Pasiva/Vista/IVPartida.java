@@ -9,4 +9,5 @@ public interface IVPartida {
     public void setTituloPartida(String idPartida, String Modo);
     public void setnombreJugadores(String nombreJ1, String nombreJ2);
     public void setSalida(int scoreJ1, int scoreJ2, String nombreGanador);
+    public String getTipoVista();
 }

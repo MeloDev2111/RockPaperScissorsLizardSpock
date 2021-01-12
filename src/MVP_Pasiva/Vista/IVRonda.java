@@ -10,4 +10,5 @@ public interface IVRonda {
     public void setNombreJugadores(String nombreJ1, String nombreJ2);
     public void setJugadas(String OpJugadaJ1, String OpJugadaJ2);
     public void setSalida(String nombreGanador);
+    public String getTipoVista();
 }

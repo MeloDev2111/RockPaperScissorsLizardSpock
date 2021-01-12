@@ -60,7 +60,7 @@ public class Validacion {
         do {
             in = new Scanner(System.in);//MODI
             String input = in.next();
-            if (!"".equals(input)) {
+            if ("".equals(input)) {
                 this.mostrarError("Debe ingresar un valor");
             }else{
                 entrada = input;
@@ -117,7 +117,7 @@ public class Validacion {
                 }
 
                 if (jugada==null) {
-                    this.mostrarError("R o P o S");
+                    this.mostrarError("R, P, S, L o V");
                 }
             }
 

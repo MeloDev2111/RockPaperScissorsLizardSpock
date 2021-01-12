@@ -212,7 +212,12 @@ public class VCargarPartidaSwing extends javax.swing.JPanel implements IVCargarP
         int pos = tablePartidas.getSelectedRow();
         return tablePartidas.getValueAt(pos, 0).toString();
     }
-
+    
+    
+    @Override
+    public String getTipoVista() {
+        return "Swing";
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

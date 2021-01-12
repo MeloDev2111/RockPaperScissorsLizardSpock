@@ -2,6 +2,7 @@ package MVP_Pasiva.Presentador;
 
 import MVP_Pasiva.Vista.IVPartida;
 import MVP_Pasiva.Vista.IVRonda;
+import MVP_Pasiva.Vista.VPartidaConsola;
 import MVP_Pasiva.Vista.VPartidaSwing;
 import Modelo.Partida;
 import Modelo.Ronda;
@@ -12,7 +13,9 @@ public class PresentadorRonda {
     private Partida mPartida;
     private Ronda mRonda;
     
-    ServicioPartida servicioPartida = new ServicioPartida();
+    private ServicioPartida servicioPartida = new ServicioPartida();
+    private IVPartida vistaPartida;
+    
     public PresentadorRonda(IVRonda vista, Partida mPartida, Ronda mRonda) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -39,11 +42,24 @@ public class PresentadorRonda {
     }
     
     public void mostrarVistaPartida(){
-        IVPartida vistaPartida = new VPartidaSwing();
+        establecetTiposVistas();
         PresentadorPartida presentadorPartida = new PresentadorPartida(vistaPartida, this.mPartida);
         vistaPartida.setPresentador(presentadorPartida);
         vistaPartida.iniciar();
         this.vista.cerrar();
     }
     
+    private void establecetTiposVistas(){
+        switch (vista.getTipoVista()) {
+            case "Consola":
+                this.vistaPartida = new VPartidaConsola();
+                break;
+            case "Swing":
+                this.vistaPartida = new VPartidaSwing();
+                break;
+            default:
+                System.out.println("REVISAR EL GET TIPO DE VISTAS implementadas de IVPartida");
+                throw new AssertionError();
+        }
+    }
 }

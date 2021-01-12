@@ -342,5 +342,9 @@ public class VJugadaSwing extends javax.swing.JPanel implements IVJugada{
         this.btnSelectSpock.setText("");
         this.btnSelectSpock.setIcon(new ImageIcon(getClass().getResource("/Imagenes/SPOCK.png")));
     }
-
+    
+    @Override
+    public String getTipoVista() {
+        return "Swing";
+    }
 }

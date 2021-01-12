@@ -238,4 +238,9 @@ public class VRondaSwing extends javax.swing.JPanel implements IVRonda{
     public void setSalida(String nombreGanador) {
         this.lblGanadorRonda.setText(nombreGanador);
     }
+    
+    @Override
+    public String getTipoVista() {
+        return "Swing";
+    }
 }

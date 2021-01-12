@@ -8,4 +8,5 @@ public interface IVMenu {
     public void cerrar();
     public String getnombreJugador();
     public int getPuntosMaximos();
+    public String getTipoVista();
 }

@@ -2,7 +2,9 @@ package MVP_Pasiva.Presentador;
 
 import MVP_Pasiva.Vista.IVJugada;
 import MVP_Pasiva.Vista.IVRonda;
+import MVP_Pasiva.Vista.VJugadaConsola;
 import MVP_Pasiva.Vista.VJugadaSwing;
+import MVP_Pasiva.Vista.VRondaConsola;
 import MVP_Pasiva.Vista.VRondaSwing;
 import Modelo.Jugada;
 import Modelo.Partida;
@@ -11,13 +13,15 @@ import Modelo.ServicioRonda;
 import Modelo.ServicioJugadaBOT;
 
 public class PresentadorJugada {
-    IVJugada vista;
-    Partida mPartida;
-    Ronda mRonda;
+    private IVJugada vista;
+    private Partida mPartida;
+    private Ronda mRonda;
     
-    ServicioJugadaBOT servicio = new ServicioJugadaBOT();
-    ServicioRonda servicioRonda = new ServicioRonda();
-                
+    private ServicioJugadaBOT servicio = new ServicioJugadaBOT();
+    private ServicioRonda servicioRonda = new ServicioRonda();
+    private IVRonda vistaRonda;
+    private IVJugada vistaJugada;    
+    
     public PresentadorJugada(IVJugada vista, Partida mPartida, Ronda mRonda) {
         this.vista = vista;
         this.mPartida = mPartida;
@@ -111,7 +115,7 @@ public class PresentadorJugada {
                 break;
             case JvB:
                 if (mRonda.getJugada_Jugador1()==null || mRonda.getJugada_Jugador2()==null){
-                    IVJugada vistaJugada = new VJugadaSwing();//GETCLASS()!!!!!!!
+                    establecetTiposVistas();
                     PresentadorJugada presetandorJugada = new PresentadorJugada(vistaJugada, mPartida,mRonda);
                     vistaJugada.setPresentador(presetandorJugada);
                     
@@ -132,17 +136,33 @@ public class PresentadorJugada {
         
     }
     private void mostrarVistaRonda(){
-        IVRonda vistaRonda = new VRondaSwing();//GETCLASS()!!!!!!! FALTA IMPLEMENTAR EL HACK DE VISTA MENU
+        establecetTiposVistas();
         PresentadorRonda presentadorRonda = new PresentadorRonda(vistaRonda, mPartida, mRonda);
         vistaRonda.setPresentador(presentadorRonda);
         vistaRonda.iniciar();
         this.vista.cerrar();
     }
     private void mostrarVistaJugada(){
-        IVJugada vistaJugada = new VJugadaSwing();//GETCLASS()!!!!!!!
+        establecetTiposVistas();
         PresentadorJugada presetandorJugada = new PresentadorJugada(vistaJugada, mPartida,mRonda);
         vistaJugada.setPresentador(presetandorJugada);
         vistaJugada.iniciar();
         this.vista.cerrar();
+    }
+    
+    private void establecetTiposVistas(){
+        switch (vista.getTipoVista()) {
+            case "Consola":
+                this.vistaJugada = new VJugadaConsola();
+                this.vistaRonda = new VRondaConsola();
+                break;
+            case "Swing":
+                this.vistaJugada = new VJugadaSwing();
+                this.vistaRonda = new VRondaSwing();
+                break;
+            default:
+                System.out.println("REVISAR EL GET TIPO DE VISTAS implementadas de IVJugada y IVRonda");
+                throw new AssertionError();
+        }
     }
 }

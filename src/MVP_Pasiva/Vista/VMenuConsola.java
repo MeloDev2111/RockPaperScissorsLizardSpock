@@ -20,14 +20,18 @@ public class VMenuConsola implements IVMenu{
             switch (op) {
                 case 1:
                     presentador.iniciarPartidaJvJ();
+                    op=5;
                     break;
                 case 2:
                     presentador.iniciarPartidaJvB();
+                    op=5;
                     break;
                 case 3:
                     presentador.iniciarPartidaBvB();
+                    op=5;
                     break;  
                 case 4:
+                    cerrar();
                     presentador.mostrarMenuCargarPartidas();
                     break;
                 case 5:
@@ -38,7 +42,8 @@ public class VMenuConsola implements IVMenu{
                     System.out.println("OPCIONES ENTRE 1 Y 5");
                     break;
             }
-        }while(op!=6);
+        }while(op!=5);
+        System.out.println("RECIEN SALGO");
     }
     
     private void menu() {
@@ -59,14 +64,21 @@ public class VMenuConsola implements IVMenu{
 
     @Override
     public String getnombreJugador() {
-//        return validar.inString();
-        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
+        System.out.println("Ingrese el nombre del Jugador");
+        return validar.inString();
+//        return validar.inNombreJugadorOptionPane("Ingrese el Nombre del Jugador");
     }
 
     @Override
     public int getPuntosMaximos() {
-//        return validar.inInt();
-        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
+        System.out.println("Ingrese el nro de puntos necesarios para ganar:");
+        return validar.inInt();
+//        return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
+    }
+
+    @Override
+    public String getTipoVista() {
+        return "Consola";
     }
     
 }

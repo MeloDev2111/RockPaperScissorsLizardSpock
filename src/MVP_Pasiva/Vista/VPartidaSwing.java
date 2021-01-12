@@ -2,6 +2,7 @@ package MVP_Pasiva.Vista;
 
 import MVP_Pasiva.Presentador.PresentadorPartida;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
     private JFrame frame = new JFrame("Partida de R P S L V");
@@ -205,7 +206,13 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPartidaActionPerformed
-        presentador.guardarPartida();
+        try{
+            presentador.guardarPartida();
+            JOptionPane.showMessageDialog(null,"PARTIDA GUARDADA",
+                    "GUARDADO",JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception e){
+            System.out.println("ERROR AL GUARDAR");
+        }
     }//GEN-LAST:event_btnGuardarPartidaActionPerformed
 
     private void btnComenzarRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarRondaActionPerformed
@@ -276,6 +283,11 @@ public class VPartidaSwing extends javax.swing.JPanel implements IVPartida{
     @Override
     public void setTituloPartida(String idPartida, String Modo) {
         this.lblPartida.setText("PARTIDA #"+idPartida+" ("+Modo+" mode)");
+    }
+
+    @Override
+    public String getTipoVista() {
+        return "Swing";
     }
 
 }

@@ -192,4 +192,9 @@ public class VMenuSwing extends javax.swing.JPanel implements IVMenu{
     public int getPuntosMaximos() {
         return validar.inPtosMaximosOptionPane("Ingrese Puntos necesarios para ganar");
     }
+
+    @Override
+    public String getTipoVista() {
+        return "Swing";
+    }
 }

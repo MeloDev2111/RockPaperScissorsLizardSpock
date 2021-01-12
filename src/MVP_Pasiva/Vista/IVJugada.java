@@ -9,4 +9,5 @@ public interface IVJugada {
     public void setNombreJugador(String nombre);
     public void iniciar();
     public void cerrar();
+    public String getTipoVista();
 }

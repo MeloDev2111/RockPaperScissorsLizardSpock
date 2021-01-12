@@ -18,6 +18,7 @@ public class PresentadorMenu {
     
     private OperacionesIndex index = new OperacionesIndex();
     private IVPartida vistaPartida;
+    private IVCargarPartida vistaCargar;
     
     public PresentadorMenu(IVMenu vista, Partida mPartida) {
         this.vista = vista;
@@ -47,7 +48,7 @@ public class PresentadorMenu {
     }
     
     public void mostrarMenuCargarPartidas(){
-        IVCargarPartida vistaCargar = new VCargarPartidaSwing();
+        establecetTiposVistas();
         Partida partidaporCargar = new Partida();
         
         PresentadorCargarPartida presentadorCargar = new 
@@ -66,8 +67,6 @@ public class PresentadorMenu {
     
     private void establecerTitulo(){
         mPartida.setIdPartida(String.valueOf(index.getidNuevaPartida()));
-        //METODOS QUE DETERMINA EL ID DE LA PARTIDA
-        //SERVICIO FICHEROS IMPLEMENTAR
     }
     
     private void establecerPuntosMaximos(){
@@ -101,21 +100,27 @@ public class PresentadorMenu {
     }
     
     private void mostrarVistaPartida(){
-        switch (vista.getClass().toString()) {
-            case "class MVP_Pasiva.Vista.VMenuConsola":
-                this.vistaPartida = new VPartidaConsola();
-                break;
-            case "class MVP_Pasiva.Vista.VMenuSwing":
-                this.vistaPartida = new VPartidaSwing();
-                break;
-            default:
-                System.out.println("REVISAR EL NOMBRE DE LAS VISTAS derivadas de IVPartida");
-                break;
-        }
+        establecetTiposVistas();
         PresentadorPartida presentadorPartida = new PresentadorPartida(this.vistaPartida, this.mPartida);
         vistaPartida.setPresentador(presentadorPartida);
         vistaPartida.iniciar();
         this.vista.cerrar();
+    }
+    
+    private void establecetTiposVistas(){
+        switch (vista.getTipoVista()) {
+            case "Consola":
+                this.vistaPartida = new VPartidaConsola();
+//                this.vistaCargar = new VCargarPartidaConsola();
+                break;
+            case "Swing":
+                this.vistaPartida = new VPartidaSwing();
+                this.vistaCargar = new VCargarPartidaSwing();
+                break;
+            default:
+                System.out.println("REVISAR  EL GET TIPO DE VISTAS implementadas de IVJugada y IVMenu");
+                throw new AssertionError();
+        }
     }
     
 }

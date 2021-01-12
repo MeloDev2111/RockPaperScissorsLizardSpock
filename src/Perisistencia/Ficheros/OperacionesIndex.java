@@ -31,6 +31,7 @@ public class OperacionesIndex extends operaciones{
             while (Line!=null) {
                 if (Line.equals(index)) {
                     flag=false;
+                    System.out.println("Indexado existente");
                 }
                 Line = br.readLine();
             }
@@ -39,7 +40,7 @@ public class OperacionesIndex extends operaciones{
                 WriteAppendLine(index);
             }
         } catch (Exception ex) {
-            System.out.println("NO SE PUDO INDEXAR, YA EXISTE");
+            System.out.println("ERROR AL LEER FICHERO INDEX");
         }
     }
 
